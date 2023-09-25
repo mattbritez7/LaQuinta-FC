@@ -9,7 +9,11 @@ import {
   Container,
 } from '@chakra-ui/react'
 
-import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi'
+import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
+import CampoDeFutbol from '../assets/Campodefutbol.jpg';
+import CampoDeFutbol2 from '../assets/Campodefutbol2.jpg';
+import CampoDeFutbol3 from '../assets/Campodefutbol3.jpg';
+import CampoDeFutbol4 from '../assets/Campodefutbol4.jpeg';
 
 import Slider from 'react-slick';
 
@@ -40,27 +44,34 @@ export default function CaptionCarousel() {
   // This can be static or loaded from a server
   const cards = [
     {
+      title: '"Sigue trabajando incluso cuando nadie está mirando".', 
+      text: 'Alex Morgan',
+      image:
+        CampoDeFutbol,
+    },
+    {
+      
       title: '"Toqué a Messi para asegurarme de que es un ser humano".',
       text: 'Gianluigi Buffon',
       image:
-        'https://images.unsplash.com/photo-1516796181074-bf453fbfa3e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
+      CampoDeFutbol2,
     },
     {
       title: '"Sin la ayuda de mis compañeros no sería nada de nada".', 
       text: 'Leo Messi',
       image:
-        'https://images.unsplash.com/photo-1438183972690-6d4658e3290e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2274&q=80',
+      CampoDeFutbol3,
     },
     {
       title: '"Todos mis héroes fueron jugadores de fútbol".',
       text: '‍Zlatan Ibrahimovic',
       image:
-        'https://images.unsplash.com/photo-1507237998874-b4d52d1dd655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
+      CampoDeFutbol4,
     },
   ]
 
   return (
-    <Box position={'relative'} height={'600px'} width={'full'} overflow={'hidden'}>
+    <Box position={'relative'} height={'85vh'} width={'full'} overflow={'hidden'}>
       {/* CSS files for react-slick */}
       <link
         rel="stylesheet"
@@ -103,6 +114,7 @@ export default function CaptionCarousel() {
             key={index}
             height={'6xl'}
             position="relative"
+            width={"1500px"}
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
@@ -111,15 +123,15 @@ export default function CaptionCarousel() {
             <Container size="container.lg" height="600px" position="relative">
               <Stack
                 spacing={6}
-                w={'full'}
+                width={1000}
                 maxW={'lg'}
                 position="absolute"
-                top="50%"
+                top="70%"
                 transform="translate(0, -50%)">
-                <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
+                <Heading color="white" fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }} width={1000} textAlign={"center"}>
                   {card.title}
                 </Heading>
-                <Text fontSize={"30px"} color="#fd0505">
+                <Text fontSize={"30px"} color="#fd0505" width={1000}>
                   {card.text}
                 </Text>
               </Stack>
