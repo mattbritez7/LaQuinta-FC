@@ -1,5 +1,6 @@
 import GoogleMaps from "simple-react-google-maps";
 
+
 const GoogleMap = () => {
   const latitud = -34.8483596;
   const longitud = -58.3573251;
@@ -8,8 +9,8 @@ const GoogleMap = () => {
     <>
       <div>mapa</div>
       <GoogleMaps
-        apiKey={"Your Google Api Key"}
-        style={{height: "400px", width: "1000px"}}
+        apiKey={import.meta.env.VITE_API_KEY}
+        style={{height: "200px", width: "1000px", zindex: "999", borderradius: "15px"}}
         zoom={6}
         center={{lat: latitud, lng: longitud}}
       />
