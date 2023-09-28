@@ -10,10 +10,6 @@ import {
 } from '@chakra-ui/react'
 
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
-import CampoDeFutbol from '../assets/Campodefutbol.jpg';
-import CampoDeFutbol2 from '../assets/Campodefutbol2.jpg';
-import CampoDeFutbol3 from '../assets/Campodefutbol3.jpg';
-import CampoDeFutbol4 from '../assets/Campodefutbol4.jpeg';
 
 import Slider from 'react-slick';
 
@@ -30,7 +26,7 @@ const settings = {
   slidesToScroll: 1,
 }
 
-export default function CaptionCarousel() {
+export default function CaptionCarousel( cards, size ) {
   // As we have used custom buttons, we need a reference variable to
   // change the state
   const [slider, setSlider] = React.useState(null);
@@ -42,36 +38,10 @@ export default function CaptionCarousel() {
 
   // This list contains all the data for carousels
   // This can be static or loaded from a server
-  const cards = [
-    {
-      title: '"Sigue trabajando incluso cuando nadie está mirando".', 
-      text: 'Alex Morgan',
-      image:
-        CampoDeFutbol,
-    },
-    {
-      
-      title: '"Toqué a Messi para asegurarme de que es un ser humano".',
-      text: 'Gianluigi Buffon',
-      image:
-      CampoDeFutbol2,
-    },
-    {
-      title: '"Sin la ayuda de mis compañeros no sería nada de nada".', 
-      text: 'Leo Messi',
-      image:
-      CampoDeFutbol3,
-    },
-    {
-      title: '"Todos mis héroes fueron jugadores de fútbol".',
-      text: '‍Zlatan Ibrahimovic',
-      image:
-      CampoDeFutbol4,
-    },
-  ]
-
+  console.log(cards.cards)
+  console.log(size.size)
   return (
-    <Box position={'relative'} height={'85vh'} width={'full'} overflow={'hidden'}>
+    <Box position={'relative'} height={size.height} width={size.width} overflow={'hidden'}>
       {/* CSS files for react-slick */}
       <link
         rel="stylesheet"
@@ -109,7 +79,7 @@ export default function CaptionCarousel() {
       </IconButton>
       {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
-        {cards.map((card, index) => (
+        {cards.cards.map((card, index) => (
           <Box
             key={index}
             height={'6xl'}
