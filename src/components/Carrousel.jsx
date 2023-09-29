@@ -26,7 +26,7 @@ const settings = {
   slidesToScroll: 1,
 }
 
-export default function CaptionCarousel( cards, size ) {
+export default function CaptionCarousel({ cards, size }) {
   // As we have used custom buttons, we need a reference variable to
   // change the state
   const [slider, setSlider] = React.useState(null);
@@ -38,10 +38,10 @@ export default function CaptionCarousel( cards, size ) {
 
   // This list contains all the data for carousels
   // This can be static or loaded from a server
-  console.log(cards.cards)
-  console.log(size.size)
+  console.log(size[0])
+
   return (
-    <Box position={'relative'} height={size.height} width={size.width} overflow={'hidden'}>
+    <Box position={'relative'} height={size[0].height} width={size[0].width} overflow={'hidden'}>
       {/* CSS files for react-slick */}
       <link
         rel="stylesheet"
@@ -79,7 +79,7 @@ export default function CaptionCarousel( cards, size ) {
       </IconButton>
       {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
-        {cards.cards.map((card, index) => (
+        {cards.map((card, index) => (
           <Box
             key={index}
             height={'6xl'}

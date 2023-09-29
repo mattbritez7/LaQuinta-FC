@@ -39,7 +39,7 @@ function App() {
   const size = [
     {
       width: 'full', 
-      height: '80vh',
+      height: '85vh',
     },
   ]
 
