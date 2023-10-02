@@ -43,10 +43,16 @@ function App() {
     },
   ]
 
+  const borderRadius = [
+    {
+      size: "none",
+    },
+  ]
+
   return ( 
     <>
       <Nav />
-      <Carrousel cards={cards} size={size}/>
+      {/* <Carrousel cards={cards} size={size} borderRadius={borderRadius}/>  */}
       <SectionInfo />
       <ContactUs />
       <Footer />

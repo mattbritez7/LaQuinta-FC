@@ -31,10 +31,16 @@ export default function SectionInfo() {
       ]
     const size = [
         {
-          width: '400px', 
-          height: '400px',
+          width: 'auto', 
+          height: '300px',
         },
     ]
+
+    const BorderRadius = [
+      {
+        size: "20px",
+      },
+  ]
 
     return ( 
         <>
@@ -47,16 +53,29 @@ export default function SectionInfo() {
                 </Text>
                 
                 <Flex color='white'>
-                <Carrousel cards={cards} size={size}/>
-                <Box width={"35vw"} border={"1px solid black"}>
-                <Text fontSize={"18px"} color="#e8e8e8" textAlign={"center"}>
-                    Los campos deportivos requieren para su mantenimiento de personas con conocimientos específicos en áreas como el césped, riego, maquinaria, suelos y gerenciamiento.
+
+                <Box width={"40vw"} border={"1px solid black"} ml={"30px"}>
+                <Box>
+                  <Carrousel cards={cards} size={size} borderRadius={BorderRadius}/> 
+                  <Text fontSize={"20px"} color="#e8e8e8" textAlign={"center"}>
+                   MANTENIMIENTO PROFESIONAL
+                  </Text>
+                </Box>
+                
+                <Text fontSize={"14px"} color="#e8e8e8" textAlign={"center"} mt={"15px"}>
+                    Los campos deportivos requieren para su mantenimiento de personas con conocimientos específicos en áreas como el césped, riego, maquinaria, suelos y gerenciamiento. <br/>
                     El complejo deportivo La Quinta cuenta con estos requisitos para brindar la mejor experiencia del Fútbol.
                 </Text>
                 </Box>  
                 <Spacer />
-                <Box width={"35vw"} border={"1px solid black"}>
-                <Text fontSize={"18px"} color="#e8e8e8" textAlign={"center"}>
+                <Box width={"40vw"} border={"1px solid black"} mr={"30px"}>
+                <Box>
+                <Carrousel cards={cards} borderRadius={BorderRadius}/>
+                <Text fontSize={"20px"} color="#e8e8e8" textAlign={"center"}>
+                    VESTIDORES, ESTACIONAMIENTO Y BUFFET                
+                </Text> 
+                </Box>
+                <Text fontSize={"14px"} color="#e8e8e8" textAlign={"center"} mt={"15px"}>
                     Las instalaciones de La Quinta FC. cuentan con 2 Vestuarios de capacidad para 100 personas con 22 duchas y servicio de Guardaropa. Estacionamiento propio con capacidad para 400 autos, rodeado de árboles y Posee un amplio Buffet donde podrán refrescarse y recuperar energías después de cada partido.
                 </Text>  
                 </Box>
