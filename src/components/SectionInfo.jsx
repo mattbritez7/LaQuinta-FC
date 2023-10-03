@@ -3,12 +3,15 @@ import Carrousel from './Carrousel.jsx';
 import Section1 from "../assets/section1.jpg";
 import Section2 from "../assets/section2.jpeg";
 import Section3 from "../assets/section3.jpeg";
+import Section4 from "../assets/imagesection.png";
+import Section5 from "../assets/imagesection1.jpg";
+import Section6 from "../assets/imagesection2.jpg";
 
 
 
 export default function SectionInfo() {
 
-    const cards = [
+    const cards1 = [
         {
           title: '', 
           text: '',
@@ -29,6 +32,28 @@ export default function SectionInfo() {
           Section3,
         },
       ]
+
+      const cards2 = [
+        {
+          title: '', 
+          text: '',
+          image:
+            Section4,
+        },
+        {
+          
+          title: '',
+          text: '',
+          image:
+          Section5,
+        },
+        {
+          title: '', 
+          text: '',
+          image:
+          Section6,
+        },
+      ]
     const size = [
         {
           width: 'auto', 
@@ -36,27 +61,27 @@ export default function SectionInfo() {
         },
     ]
 
-    const BorderRadius = [
-      {
-        size: "20px",
-      },
-  ]
+     const BorderRadius = [
+     {
+         size: "20px",
+     },
+   ]
 
     return ( 
         <>
-            <Box bg="#30ad64" px={6} height={"100vh"} border={"1px solid black"}>
+            <Box bg="#30ad64" px={6} height={"115vh"} pt={"20px"}>
                 <Text fontSize={"30px"} color="#fff" textAlign={"center"}>
                     +15 HECTAREAS DEDICADAS AL FUTBOL
                 </Text>
-                <Text fontSize={"18px"} color="#e8e8e8" textAlign={"center"}>
+                <Text fontSize={"18px"} color="#e8e8e8" textAlign={"center"} mb={"60px"}>
                     CANCHAS CON MEDIDAS REGLAMENTARIAS
                 </Text>
                 
                 <Flex color='white'>
 
-                <Box width={"40vw"} border={"1px solid black"} ml={"30px"}>
+                <Box width={"40vw"} ml={"30px"}>
                 <Box>
-                  <Carrousel cards={cards} size={size} borderRadius={BorderRadius}/> 
+                  <Carrousel cards={cards1} size={size} borderRadius={BorderRadius}/> 
                   <Text fontSize={"20px"} color="#e8e8e8" textAlign={"center"}>
                    MANTENIMIENTO PROFESIONAL
                   </Text>
@@ -68,9 +93,9 @@ export default function SectionInfo() {
                 </Text>
                 </Box>  
                 <Spacer />
-                <Box width={"40vw"} border={"1px solid black"} mr={"30px"}>
+                <Box width={"40vw"} mr={"30px"}>
                 <Box>
-                <Carrousel cards={cards} borderRadius={BorderRadius}/>
+                <Carrousel cards={cards2} size={size} borderRadius={BorderRadius}/>
                 <Text fontSize={"20px"} color="#e8e8e8" textAlign={"center"}>
                     VESTIDORES, ESTACIONAMIENTO Y BUFFET                
                 </Text> 

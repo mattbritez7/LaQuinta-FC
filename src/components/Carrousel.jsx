@@ -35,7 +35,7 @@ export default function CaptionCarousel({ cards, size, borderRadius }) {
   // buttons as the screen size changes
   const top = useBreakpointValue({ base: '90%', md: '50%' })
   const side = useBreakpointValue({ base: '30%', md: '40px' })
-
+  
   // This list contains all the data for carousels
   // This can be static or loaded from a server
   
