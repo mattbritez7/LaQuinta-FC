@@ -95,10 +95,10 @@ export default function CaptionCarousel({ cards, size, borderRadius }) {
                 position="absolute"
                 top="70%"
                 transform="translate(0, -50%)">
-                <Heading color="white" fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }} width={1000} textAlign={"center"}>
+                <Heading color="white" fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }} textAlign={"center"}>
                   {card.title}
                 </Heading>
-                <Text fontSize={"30px"} color="#fd0505" width={1000}>
+                <Text fontSize={"30px"} color="#fd0505" mb={"300px"} textAlign={"center"}>
                   {card.text}
                 </Text>
               </Stack>
