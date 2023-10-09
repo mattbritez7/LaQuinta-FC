@@ -16,6 +16,7 @@ import {
     InputGroup,
     InputLeftElement,
     Textarea,
+    Spacer,
   } from '@chakra-ui/react'
   import {
     MdPhone,
@@ -29,23 +30,16 @@ import {
   
   export default function Contact() {
     return (
-      <Container bg="#9DC4FB" maxW="full" mt={0} centerContent overflow="hidden">
-        <Flex>
-          <Box
-            bg="#02054B"
-            color="white"
-            borderRadius="lg"
-            m={{ sm: 4, md: 16, lg: 10 }}
-            p={{ sm: 5, md: 5, lg: 16 }}>
-            <Box p={4} textAlign={"center"} mb={"20px"}>
-                <Heading>Contactanos</Heading>
-              <Wrap spacing={{ base: 20, sm: 3, md: 5, lg: 20 }}>
-                <WrapItem>
-                </WrapItem>
-                <WrapItem>
-                  <Box bg="white" borderRadius="lg">
-                    <Box m={8} color="#0B0E3F">
-                      <VStack spacing={5}>
+      <>
+  
+            <Box textAlign={"center"}
+             bg="#02054B"
+             color="white"
+             maxW="100%">
+              <Flex>
+              
+                  <Box width={"40vw"}>
+                    <Box m={10} color="white" ml={"55px"}>
                         <FormControl id="name">
                           <FormLabel>Nombre</FormLabel>
                           <InputGroup borderColor="#E0E1E7">
@@ -79,13 +73,10 @@ import {
                             Enviar
                           </Button>
                         </FormControl>
-                      </VStack>
                     </Box>
                   </Box>
-                </WrapItem>
-                          <Box>
-                              <Box py={{ base: 5, sm: 5, md: 8, lg: 10 }}>
-                                <VStack pl={0} spacing={3} alignItems="flex-start">
+                  <Spacer/>  
+                                <VStack spacing={3} textAlign={"start"} justifyContent={"center"} width={"40vw"}  alignItems={"center"}>
                                   <Button
                                     size="md"
                                     height="48px"
@@ -117,14 +108,11 @@ import {
                                     Av. Republica Argentina al 6500, esquina Pedro de Irigoyen
                                   </Button>
                                 </VStack>
-                              </Box>
-                             
-                        </Box>
-              </Wrap>
-            </Box>
-          <GoogleMap />
-        </Box>
+                       
       </Flex>    
-    </Container>
+            </Box>
+       
+          <GoogleMap />
+          </>
    )
  }

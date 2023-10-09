@@ -40,7 +40,7 @@ function SectionLigas() {
 
     return ( 
         <>
-        <Box bg="white" px={6} height={"115vh"} pt={"20px"}>
+        <Box bg="white" px={6} height={"100vh"} pt={"20px"}>
              <Flex>
             <Box width={"40vw"} ml={"40px"}>
                 <Box>
