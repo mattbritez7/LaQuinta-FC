@@ -14,8 +14,8 @@ function SectionLigas() {
 
     const size = [
         {
-          width: '620px', 
-          height: '400px',
+          width: '45vw', 
+          height: '55vh',
         },
     ]
     const borderRadius = [
@@ -154,7 +154,7 @@ function SectionLigas() {
                 <Button onClick={changeLigaF11} variant="outline" mr="10px">F11</Button>
             </Flex>
         </Box>
-        <Box bg="white" px={6} height={"50vh"} pt={"20px"}>
+        <Box bg="white" px={6} height={"100%"} pt={"20px"}>
              <Flex>
             <Box width={"40vw"} ml={"40px"}>
                 <Box>
