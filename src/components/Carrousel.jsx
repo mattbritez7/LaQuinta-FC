@@ -85,7 +85,8 @@ export default function CaptionCarousel({ cards, size, borderRadius }) {
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
-            backgroundImage={`url(${card.image})`}>
+            height='85vh'
+            backgroundImage={`linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(${card.image})`}>
             {/* This is the block you need to change, to customize the caption */}
             <Container size="container.lg" height="600px" position="relative">
               <Stack
