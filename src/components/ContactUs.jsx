@@ -1,81 +1,64 @@
 import {
-    Container,
     Flex,
     Box,
-    Heading,
-    Text,
-    IconButton,
     Button,
     VStack,
-    HStack,
-    Wrap,
-    WrapItem,
     FormControl,
-    FormLabel,
     Input,
     InputGroup,
-    InputLeftElement,
     Textarea,
-    Spacer,
+    Text,
   } from '@chakra-ui/react'
   import {
     MdPhone,
     MdEmail,
     MdLocationOn,
-    MdFacebook,
-    MdOutlineEmail,
   } from 'react-icons/md';
-  import { BsGithub, BsDiscord, BsPerson } from 'react-icons/bs';
   import GoogleMap from './GoogleMap';
+  import CampoDeFutbol from '../assets/Campodefutbol.jpg';
   
   export default function Contact() {
+
     return (
       <>
-  
-            <Box textAlign={"center"}
-             bg="#02054B"
-             color="white"
-             maxW="100%">
-              <Flex>
-              
+            <Box 
+              textAlign={"center"}
+              background={`linear-gradient(rgba(0, 0, 0, 0.69), rgba(0, 0, 0, 0.69)), url(${CampoDeFutbol})`}
+              backgroundSize="cover"
+              backgroundAttachment="fixed"
+              color="white"
+              maxW="100%"
+              height={'75vh'}
+            >
+              <Text fontSize={'24px'} pt={'20px'}>CONTACTANOS</Text>
+              <Flex justify={'center'}>
                   <Box width={"40vw"}>
-                    <Box m={10} color="white" ml={"55px"}>
+                    <Box m={10} color="white" ml={"55px"} >
                         <FormControl id="name">
-                          <FormLabel>Nombre</FormLabel>
                           <InputGroup borderColor="#E0E1E7">
-                            <InputLeftElement pointerEvents="none">
-                              <BsPerson color="gray.800" />
-                            </InputLeftElement>
-                            <Input type="text" size="md" />
+                            <Input type="text" size="md" placeholder="Nombre" mt={"25px"} width={'27vw'} ml={"77px"} />
                           </InputGroup>
                         </FormControl>
                         <FormControl id="name">
-                          <FormLabel>Email</FormLabel>
                           <InputGroup borderColor="#E0E1E7">
-                            <InputLeftElement pointerEvents="none">
-                              <MdOutlineEmail color="gray.800" />
-                            </InputLeftElement>
-                            <Input type="text" size="md" />
+                            <Input type="text" size="md" placeholder="Email" mt={"25px"} width={'27vw'} ml={"77px"} />
                           </InputGroup>
                         </FormControl>
                         <FormControl id="name">
-                          <FormLabel>Comentario</FormLabel>
                           <Textarea
                             borderColor="gray.300"
-                            _hover={{
-                              borderRadius: 'gray.300',
-                            }}
-                            placeholder="message"
+                            mt={"25px"}
+                            width={'27vw'}
+                            placeholder="Comentario"
                           />
                         </FormControl>
                         <FormControl id="name" float="none">
-                          <Button variant="solid" bg="#0D74FF" color="white" _hover={{}}>
+                          <Button variant="solid" bg="#0D74FF" color="white" mt={"25px"}>
                             Enviar
                           </Button>
                         </FormControl>
                     </Box>
                   </Box>
-                  <Spacer/>  
                                 <VStack spacing={3} textAlign={"start"} justifyContent={"center"} width={"40vw"}  alignItems={"center"}>
                                   <Button
                                     size="md"
@@ -107,12 +90,10 @@ import {
                                     leftIcon={<MdLocationOn color="#1970F1" size="20px" />}>
                                     Av. Republica Argentina al 6500, esquina Pedro de Irigoyen
                                   </Button>
-                                </VStack>
-                       
-      </Flex>    
-            </Box>
-       
-          <GoogleMap />
+                                </VStack>           
+                            </Flex>    
+                      <GoogleMap />
+                    </Box>
           </>
    )
  }

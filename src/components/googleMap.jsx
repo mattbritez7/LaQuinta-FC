@@ -1,3 +1,4 @@
+import { Box, Flex } from "@chakra-ui/react";
 import GoogleMaps from "simple-react-google-maps";
 
 
@@ -7,13 +8,16 @@ const GoogleMap = () => {
 
   return (
     <>
-      <div>mapa</div>
-      <GoogleMaps
-        apiKey={import.meta.env.VITE_API_KEY}
-        style={{height: "200px", width: "1000px", zindex: "999", borderradius: "15px"}}
-        zoom={6}
-        center={{lat: latitud, lng: longitud}}
-      />
+      <Box mt={'20px'}>
+        <Flex justify={'center'}>
+          <GoogleMaps
+            apiKey={import.meta.env.VITE_API_KEY}
+            style={{height: "200px", width: "1000px", zindex: "999", borderradius: "15px", alingItems: "center"}}
+            zoom={6}
+            center={{lat: latitud, lng: longitud}}
+          />
+        </Flex>
+      </Box>
     </>
   )
 };
