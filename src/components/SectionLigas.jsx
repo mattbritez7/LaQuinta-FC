@@ -155,20 +155,21 @@ function SectionLigas() {
             </Flex>
         </Box>
         <Box bg="white" px={6} height={"100%"} pt={"20px"} mt={'3%'}>
-             <Flex>
-            <Box width={"40vw"} mt={'3%'}>
-                <Box mb={'10vh'}>
+        <Flex flexDirection={{ base: "column", md: "row" }}>
+        <Box width={{ base: "100%", md: "40vw" }} mt={{ base: '3%', md: 0 }}>
+        <Box mb={{ base: '10vh', md: '10vh' }}>
                     <CaptionCarousel cards={liga.cards} size={size} borderRadius={borderRadius}/> 
                 </Box>
             </Box>
                 <Spacer />
-                <Box 
-                    width={"40vw"} 
+                <Box
+                    width={{ base: "100%", md: "40vw" }}
                     display={'flex'}
                     justifyContent="center"
                     flexDirection={'column'}
                     alignItems="center"
-                    textAlign={"center"}>
+                    textAlign={{ base: "center", md: "left" }}
+                >
                   <Text fontSize={"31px"} color="#404047" textAlign={"left"}>
                   {liga.title}
                     </Text>
