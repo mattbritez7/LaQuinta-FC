@@ -5,6 +5,7 @@ import SectionInfo from './components/SectionInfo.jsx';
 import SectionLigas from './components/SectionLigas.jsx';
 import Window from './components/Window.jsx';
 import SectionValues from './components/SectionValues.jsx';
+import MisionsValues from './components/Misions&Values.jsx';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <SectionInfo />
       <SectionLigas />
       <SectionValues />
+      <MisionsValues />
       <ContactUs />
       <Footer />
     </>
