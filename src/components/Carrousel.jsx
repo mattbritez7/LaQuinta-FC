@@ -85,7 +85,7 @@ export default function CaptionCarousel({ cards, size, borderRadius }) {
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
-            height='85vh'
+            height="85vh"
             backgroundImage={`linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(${card.image})`}>
             {/* This is the block you need to change, to customize the caption */}
             <Container size="container.lg" height="600px" position="relative">
@@ -94,12 +94,12 @@ export default function CaptionCarousel({ cards, size, borderRadius }) {
                 width={1000}
                 maxW={'lg'}
                 position="absolute"
-                top="70%"
+                top="50%"
                 transform="translate(0, -50%)">
                 <Heading color="white" fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }} textAlign={"center"}>
                   {card.title}
                 </Heading>
-                <Text fontSize={"30px"} color="#fd0505" mb={"300px"} textAlign={"center"}>
+                <Text fontSize={"30px"} color="#fd0505" textAlign={"center"}>
                   {card.text}
                 </Text>
               </Stack>

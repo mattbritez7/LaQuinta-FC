@@ -69,7 +69,7 @@ export default function SectionInfo() {
 
     return ( 
         <>
-            <Box bg="#30ad64" px={6} height={"100%"} pt={"20px"}>
+            <Box bg="#30ad64" px={6} height={"100%"} pt={"20px"} pb={'10%'}>
                 <Text fontSize={"30px"} color="#fff" textAlign={"center"}>
                     +15 HECTAREAS DEDICADAS AL FUTBOL
                 </Text>

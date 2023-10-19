@@ -35,7 +35,7 @@ function Window() {
       const size = [
         {
           width: 'full', 
-          height: '100vh',
+          height: '100%',
         },
       ]
     

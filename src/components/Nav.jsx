@@ -8,7 +8,6 @@ import {
     Stack,
   } from '@chakra-ui/react';
   import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-  import LogoQuintaSVG from "../assets/LogoQuintaSVG";
   
   const Links = ['Home', 'Nosotros', 'Contacto'];
   
@@ -44,9 +43,7 @@ import {
               display={{ md: 'none' }}
               onClick={isOpen ? onClose : onOpen}
             />
-            <Flex alignItems={'center'}>
-            <LogoQuintaSVG/>
-            </Flex>
+              <img src="https://uploads-ssl.webflow.com/631148da51884ca834c1d47c/6336df61918a105a4197b13c_Logo%20vector%20La%20Quinta%20FC.svg" loading="lazy" width="70" alt="Logo La Quinta"/>
             <HStack spacing={8} alignItems={'center'}>
               <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
                 {Links.map((link) => (

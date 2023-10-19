@@ -26,29 +26,29 @@ import {
               background={`linear-gradient(rgba(0, 0, 0, 0.69), rgba(0, 0, 0, 0.69)), url(${CampoDeFutbol})`}
               backgroundSize="cover"
               backgroundAttachment="fixed"
-              color="white"
               maxW="100%"
-              height={'75vh'}
+              height={{ base: '100%', md: '50%' }}
             >
-              <Text fontSize={'24px'} pt={'20px'}>CONTACTANOS</Text>
-              <Flex justify={'center'}>
-                  <Box width={"40vw"}>
-                    <Box m={10} color="white" ml={"55px"} >
-                        <FormControl id="name">
-                          <InputGroup borderColor="#E0E1E7">
-                            <Input type="text" size="md" placeholder="Nombre" mt={"25px"} width={'27vw'} ml={"77px"} />
+              <Text color='white' fontSize={'24px'} pt={'20px'}>CONTACTANOS</Text>
+              <Flex  direction={{ base: 'column', md: 'row' }} justify={'center'}>
+                  <Box 
+                    width={{ base: '100%', md: '50%' }}
+                  >
+                        <FormControl id="name" >
+                          <InputGroup borderColor="#E0E1E7" display="flex" justifyContent="center">
+                            <Input type="text" size="md" placeholder="Nombre" mt={"25px"} width={'80%'} />
                           </InputGroup>
                         </FormControl>
                         <FormControl id="name">
-                          <InputGroup borderColor="#E0E1E7">
-                            <Input type="text" size="md" placeholder="Email" mt={"25px"} width={'27vw'} ml={"77px"} />
+                          <InputGroup borderColor="#E0E1E7" display="flex" justifyContent="center">
+                            <Input type="text" size="md" placeholder="Email" mt={"25px"} width={'80%'} />
                           </InputGroup>
                         </FormControl>
                         <FormControl id="name">
                           <Textarea
                             borderColor="gray.300"
                             mt={"25px"}
-                            width={'27vw'}
+                            width={'80%'}
                             placeholder="Comentario"
                           />
                         </FormControl>
@@ -58,12 +58,11 @@ import {
                           </Button>
                         </FormControl>
                     </Box>
-                  </Box>
-                                <VStack spacing={3} textAlign={"start"} justifyContent={"center"} width={"40vw"}  alignItems={"center"}>
+                                <VStack spacing={3} textAlign={"start"} justifyContent={"center"} width={{ base: '100%', md: '50%' }} alignItems={{ base: 'center' }} mt={"25px"}>
                                   <Button
                                     size="md"
                                     height="48px"
-                                    width="200px"
+                                    width="auto"
                                     variant="ghost"
                                     color="#DCE2FF"
                                     _hover={{ border: '2px solid #1C6FEB' }}
@@ -73,7 +72,7 @@ import {
                                   <Button
                                     size="md"
                                     height="48px"
-                                    width="200px"
+                                    width="auto"
                                     variant="ghost"
                                     color="#DCE2FF"
                                     _hover={{ border: '2px solid #1C6FEB' }}
@@ -83,7 +82,8 @@ import {
                                   <Button
                                     size="md"
                                     height="48px"
-                                    width="200px"
+                                    width="auto"
+                                    mb={'20%'}
                                     variant="ghost"
                                     color="#DCE2FF"
                                     _hover={{ border: '2px solid #1C6FEB' }}
@@ -92,7 +92,7 @@ import {
                                   </Button>
                                 </VStack>           
                             </Flex>    
-                      <GoogleMap />
+                      {/* <GoogleMap /> */}
                     </Box>
           </>
    )

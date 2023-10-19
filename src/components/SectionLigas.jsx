@@ -146,18 +146,18 @@ function SectionLigas() {
 
     return ( 
         <>
-        <Box bg="white" px={6} height={"20vh"} pt={"20px"}>
-        <Text fontSize={"45px"} color="#404047" textAlign={"center"} mt={"15px"}>LIGAS</Text>
+        <Box bg="white" px={6} height={"20vh"} pt={"10px"}>
+        <Text fontSize={"45px"} color="#404047" textAlign={"center"} mt={"3%"}>LIGAS</Text>
             <Flex justify={'center'}>
                 <Button onClick={changeLigaAGC} variant="outline" mr="10px">AGC</Button>
                 <Button onClick={changeLigaUPC} variant="outline" mr="10px">UPC</Button>
                 <Button onClick={changeLigaF11} variant="outline" mr="10px">F11</Button>
             </Flex>
         </Box>
-        <Box bg="white" px={6} height={"100%"} pt={"20px"}>
+        <Box bg="white" px={6} height={"100%"} pt={"20px"} mt={'3%'}>
              <Flex>
-            <Box width={"40vw"} ml={"40px"}>
-                <Box>
+            <Box width={"40vw"} mt={'3%'}>
+                <Box mb={'10vh'}>
                     <CaptionCarousel cards={liga.cards} size={size} borderRadius={borderRadius}/> 
                 </Box>
             </Box>
