@@ -27,9 +27,10 @@ import {
               backgroundSize="cover"
               backgroundAttachment="fixed"
               maxW="100%"
+              mt={'5%'}
               height={{ base: '100%', md: '50%' }}
             >
-              <Text color='white' fontSize={'24px'} pt={'20px'}>CONTACTANOS</Text>
+              <Text color='white' fontSize={'24px'} pt={'20px'} id="Contactus">CONTACTANOS</Text>
               <Flex  direction={{ base: 'column', md: 'row' }} justify={'center'}>
                   <Box 
                     width={{ base: '100%', md: '50%' }}

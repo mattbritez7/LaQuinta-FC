@@ -15,7 +15,6 @@ const Footer = () => {
     <Box
       bg={"#F0F0F0"}
       color={"black"}
-      mt={"200px"}
     >
       <Container maxW={'55%'} py={10}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={1}>

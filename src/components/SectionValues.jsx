@@ -15,6 +15,7 @@ const SectionValues = () => {
             backgroundAttachment="fixed"
             maxW="100%"
             height={'30vh'}
+            id='AboutUs'
         >
         <Text fontSize={'32px'} color="white">9 CANCHAS DE FÚTBOL DE CESPED NATURAL CON CUIDADO <br /> PROFECIONAL Y MEDIDAS REGLAMENTARIAS.</Text>
         </Box>
