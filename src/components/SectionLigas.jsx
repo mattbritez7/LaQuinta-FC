@@ -162,8 +162,14 @@ function SectionLigas() {
                 </Box>
             </Box>
                 <Spacer />
-                <Box width={"40vw"} ml={"25px"} alignItems={"center"}>
-                  <Text fontSize={"31px"} color="#404047" textAlign={"left"} mt={"15px"}>
+                <Box 
+                    width={"40vw"} 
+                    display={'flex'}
+                    justifyContent="center"
+                    flexDirection={'column'}
+                    alignItems="center"
+                    textAlign={"center"}>
+                  <Text fontSize={"31px"} color="#404047" textAlign={"left"}>
                   {liga.title}
                     </Text>
                     <Text fontSize={"14px"} color="#6a859c" textAlign={"left"} mt={"15px"}>
