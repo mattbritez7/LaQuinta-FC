@@ -40,7 +40,7 @@ export default function CaptionCarousel({ cards, size, borderRadius }) {
   // This can be static or loaded from a server
   
   return (
-    <Box position={'relative'} height={size[0].height} width={size[0].width} overflow={'hidden'} borderRadius={borderRadius[0].size}>
+    <Box position={'relative'} height={size[0].height}  width={{ base: size[0].widthMobile, md: size[0].width }} overflow={'hidden'} borderRadius={borderRadius[0].size}>
       {/* CSS files for react-slick */}
       <link
         rel="stylesheet"

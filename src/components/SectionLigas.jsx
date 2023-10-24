@@ -16,6 +16,7 @@ function SectionLigas() {
         {
           width: '45vw', 
           height: '55vh',
+          widthMobile: 'full'
         },
     ]
     const borderRadius = [
@@ -154,10 +155,10 @@ function SectionLigas() {
                 <Button onClick={changeLigaF11} variant="outline" mr="10px">F11</Button>
             </Flex>
         </Box>
-        <Box bg="white" px={6} height={"100%"} pt={"20px"} mt={'3%'}>
+        <Box bg="white" px={6} height={"100%"} pt={{ base: 0, md: '20px' }} mt={{ base: 0, md: '1%' }}>
         <Flex flexDirection={{ base: "column", md: "row" }}>
         <Box width={{ base: "100%", md: "40vw" }} mt={{ base: '3%', md: 0 }}>
-        <Box mb={{ base: '10vh', md: '10vh' }}>
+        <Box mb={{ base: '5vh', md: '10vh' }}>
                     <CaptionCarousel cards={liga.cards} size={size} borderRadius={borderRadius}/> 
                 </Box>
             </Box>
@@ -173,7 +174,7 @@ function SectionLigas() {
                   <Text fontSize={"31px"} color="#404047" textAlign={"left"}>
                   {liga.title}
                     </Text>
-                    <Text fontSize={"14px"} color="#6a859c" textAlign={"left"} mt={"15px"}>
+                    <Text fontSize={"14px"} color="#6a859c" textAlign={"left"} mt={"15px"} mb={{ base: '5vh', md: 0 }}>
                     {liga.descripcion.desc1}
                         <br/>
                         {liga.descripcion.desc2}
