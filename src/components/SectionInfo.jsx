@@ -69,20 +69,18 @@ export default function SectionInfo() {
 
     return ( 
         <>
-            <Box bg="#30ad64" px={6} height={"100%"} pt={"20px"} pb={'10%'}>
+            <Box bg="#30ad64" height={"100%"} pt={"20px"} pb={'10%'}>
                 <Text fontSize={"30px"} color="#fff" textAlign={"center"}>
                     +15 HECTAREAS DEDICADAS AL FUTBOL
                 </Text>
                 <Text fontSize={"18px"} color="#e8e8e8" textAlign={"center"} mb={"60px"}>
                     CANCHAS CON MEDIDAS REGLAMENTARIAS
                 </Text>
-                
-                <Flex color='white'>
-
-                <Box width={"40vw"} ml={"30px"}>
+                <Flex color='white' alignItems={'center'} flexDirection={{ base: 'column', md: 'row' }}>
+                <Box width={{ base: '90%', md: '40vw' }} ml={{ base: 0, md: '30px' }}>
                 <Box>
                   <Carrousel cards={cards1} size={size} borderRadius={BorderRadius}/> 
-                  <Text fontSize={"20px"} color="#e8e8e8" textAlign={"center"}>
+                  <Text fontSize={"20px"} color="#e8e8e8" textAlign={"center"} mt={"15px"}>
                    MANTENIMIENTO PROFESIONAL
                   </Text>
                 </Box>
@@ -93,10 +91,10 @@ export default function SectionInfo() {
                 </Text>
                 </Box>  
                 <Spacer />
-                <Box width={"40vw"} mr={"30px"}>
-                <Box>
+                <Box width={{ base: '90%', md: '40vw' }} mr={{ base: 0, md: '30px' }}>
+                <Box mt={{ base: '25px', md:0 }}>
                 <Carrousel cards={cards2} size={size} borderRadius={BorderRadius}/>
-                <Text fontSize={"20px"} color="#e8e8e8" textAlign={"center"}>
+                <Text fontSize={"20px"} color="#e8e8e8" textAlign={"center"} mt={"15px"}>
                     VESTIDORES, ESTACIONAMIENTO Y BUFFET                
                 </Text> 
                 </Box>
