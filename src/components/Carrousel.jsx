@@ -91,11 +91,13 @@ export default function CaptionCarousel({ cards, size, borderRadius }) {
             <Container size="container.lg" height="600px" position="relative">
               <Stack
                 spacing={6}
-                width={1000}
+                width={'100%'}
                 maxW={'lg'}
                 position="absolute"
                 top="50%"
-                transform="translate(0, -50%)">
+                transform="translate(0, -50%)"
+                pr={'6%'}
+              >
                 <Heading color="white" fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }} textAlign={"center"}>
                   {card.title}
                 </Heading>
