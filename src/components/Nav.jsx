@@ -48,7 +48,9 @@ export default function Simple() {
             display={{ md: 'none' }}
             onClick={isOpen ? onClose : onOpen}
           />
-          <img src="https://uploads-ssl.webflow.com/631148da51884ca834c1d47c/6336df61918a105a4197b13c_Logo%20vector%20La%20Quinta%20FC.svg" loading="lazy" width="70" alt="Logo La Quinta"/>
+           <Box mt={{base: '7%', md: '1%'}}>
+            <img src="https://uploads-ssl.webflow.com/631148da51884ca834c1d47c/6336df61918a105a4197b13c_Logo%20vector%20La%20Quinta%20FC.svg" loading="lazy" width="70" alt="Logo La Quinta"/>
+          </Box>
           <HStack spacing={8} alignItems={'center'}>
             <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
               {Links.map((link) => (

@@ -54,12 +54,12 @@ import {
                           />
                         </FormControl>
                         <FormControl id="name" float="none">
-                          <Button variant="solid" bg="#0D74FF" color="white" mt={"25px"}>
+                          <Button variant="solid" bg="#0D74FF" color="white" mt={"5%"}>
                             Enviar
                           </Button>
                         </FormControl>
                     </Box>
-                                <VStack spacing={3} textAlign={"start"} justifyContent={"center"} width={{ base: '100%', md: '50%' }} alignItems={{ base: 'center' }} mt={"25px"}>
+                                <VStack spacing={3} textAlign={"start"} justifyContent={"center"} width={{ base: '100%', md: '50%' }} alignItems={{ base: 'center' }} mt={"5%"}>
                                   <Button
                                     size="md"
                                     height="48px"
@@ -89,7 +89,7 @@ import {
                                     color="#DCE2FF"
                                     _hover={{ border: '2px solid #1C6FEB' }}
                                     leftIcon={<MdLocationOn color="#1970F1" size="20px" />}>
-                                    Av. Republica Argentina al 6500, esquina Pedro de Irigoyen
+                                    Av. Republica Argentina al 6500,  <br/>   esquina Pedro de Irigoyen
                                   </Button>
                                 </VStack>           
                             </Flex>    

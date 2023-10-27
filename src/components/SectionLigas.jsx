@@ -158,7 +158,7 @@ function SectionLigas() {
         <Box bg="white" px={6} height={"100%"} pt={{ base: 0, md: '20px' }} mt={{ base: 0, md: '1%' }}>
         <Flex flexDirection={{ base: "column", md: "row" }}>
         <Box width={{ base: "100%", md: "40vw" }} mt={{ base: '3%', md: 0 }}>
-        <Box mb={{ base: '5vh', md: '10vh' }}>
+        <Box mb={{ base: '5vh', md: '10vh' }} mt={{ base: '5vh', md: '10vh' }}>
                     <CaptionCarousel cards={liga.cards} size={size} borderRadius={borderRadius}/> 
                 </Box>
             </Box>
