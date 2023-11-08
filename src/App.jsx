@@ -1,26 +1,19 @@
-import Footer from './components/Footer.jsx';
-import Nav from './components/Nav.jsx';
-import ContactUs from './components/ContactUs.jsx';
-import SectionInfo from './components/SectionInfo.jsx';
-import SectionLigas from './components/SectionLigas.jsx';
-import Window from './components/Window.jsx';
-import SectionValues from './components/SectionValues.jsx';
-import MisionsValues from './components/Misions&Values.jsx';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Stats from './pages/Stats';
+import Index from './pages/index';
 
 function App() {
+  return (
+    <BrowserRouter basename="/LaQuinta-FC">
 
-  return ( 
-    <>
-      <Nav />
-      <Window />
-      <SectionInfo />
-      <SectionLigas />
-      <SectionValues />
-      <MisionsValues />
-      <ContactUs />
-      <Footer />
-    </>
-  )
+     <Routes>
+      <Route path="/" element={<Index />} />
+      <Route path="/stats" element={<Stats />} />
+      </Routes>
+ 
+    </BrowserRouter>
+  );
 }
 
 export default App;
