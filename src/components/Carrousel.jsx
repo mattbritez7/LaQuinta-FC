@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   Box,
   IconButton,
@@ -27,17 +27,11 @@ const settings = {
 }
 
 export default function CaptionCarousel({ cards, size, borderRadius }) {
-  // As we have used custom buttons, we need a reference variable to
-  // change the state
+
   const [slider, setSlider] = React.useState(null);
 
-  // These are the breakpoints which changes the position of the
-  // buttons as the screen size changes
   const top = useBreakpointValue({ base: '90%', md: '50%' })
   const side = useBreakpointValue({ base: '30%', md: '40px' })
-  
-  // This list contains all the data for carousels
-  // This can be static or loaded from a server
   
   return (
     <Box position={'relative'} height={size[0].height}  width={{ base: size[0].widthMobile, md: size[0].width }} overflow={'hidden'} borderRadius={borderRadius[0].size}>

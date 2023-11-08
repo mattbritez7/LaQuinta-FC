@@ -11,7 +11,7 @@ const GoogleMap = () => {
       <Box mt={'20px'}>
         <Flex justify={'center'}>
           <GoogleMaps
-            apiKey={import.meta.env.VITE_API_KEY}
+            apiKey={import.meta.env.VITE_API_KEY_GOOGLE}
             style={{height: "200px", width: "1000px", zindex: "999", borderradius: "15px", alingItems: "center"}}
             zoom={6}
             center={{lat: latitud, lng: longitud}}
