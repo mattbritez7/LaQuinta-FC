@@ -1,14 +1,14 @@
 import { readDateslessDefeatedFences } from '../firebase/api';
-
+import DinamicTable from '../components/DinamicTable'
 
 function Stats() {
 
   console.log(readDateslessDefeatedFences());
 
   return ( 
-    <h1>
-     VALLAS MENOS VENCIDAS
-    </h1>
+    <>
+      <DinamicTable tableName={'Goleadores'} player={'Leonardo'} club={'Fioraza'} goals={'10'}/>
+    </>
   )
 }
 
