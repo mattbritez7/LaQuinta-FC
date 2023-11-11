@@ -4,13 +4,13 @@ import { useEffect, useState } from 'react';
 
 function Stats() {
 
-  const [fencesData, setFencesData] = useState([]);
+  const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
     const fetchDataLessDefeatedFences = async () => {
       try {
         const data = await readDateslessDefeatedFences();
-        setFencesData(data);
+        setTableData(data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -21,7 +21,7 @@ function Stats() {
 
   return ( 
     <>
-      <DinamicTable fencesData={fencesData}/>
+      <DinamicTable tableData={tableData}/>
     </>
   )
 }
