@@ -5,9 +5,8 @@ export default function Contact({fencesData}) {
     return (
         <>
         <TableContainer>
-        {fencesData.map((fences, index) => (
-            <>
-            <h1 key={index}>{fences.tableName}</h1>
+           
+            <h1>{fencesData[0].tableName}</h1>
                 <Table width={'20%'}>
                     <Thead>
                     <Tr>
@@ -16,16 +15,17 @@ export default function Contact({fencesData}) {
                         <Th><b>Goles</b></Th>
                     </Tr>
                     </Thead>
-                    <Tbody>
+                {fencesData.map((fences, index) => (
+                    <Tbody key={index}>
                         <Tr>
                             <Td>{fences.player}</Td>
                             <Td>{fences.club}</Td>
                             <Td>{fences.goals}</Td>
                         </Tr>
                     </Tbody>
+                ))}
                 </Table>
-            </>
-        ))}
+           
             </TableContainer>
         </>
     )
