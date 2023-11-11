@@ -1,12 +1,11 @@
 import { TableContainer, Table, Thead, Tr, Th, Tfoot, Tbody, Td} from '@chakra-ui/react'
   
-export default function Contact({fencesData}) {
-    
+export default function Contact({tableData}) {
+
     return (
         <>
-        <TableContainer>
-           
-            <h1>{fencesData[0].tableName}</h1>
+        <TableContainer>    
+            <h1>{tableData[0]?.tableName}</h1>
                 <Table width={'20%'}>
                     <Thead>
                     <Tr>
@@ -15,12 +14,12 @@ export default function Contact({fencesData}) {
                         <Th><b>Goles</b></Th>
                     </Tr>
                     </Thead>
-                {fencesData.map((fences, index) => (
+                {tableData?.map((data, index) => (
                     <Tbody key={index}>
                         <Tr>
-                            <Td>{fences.player}</Td>
-                            <Td>{fences.club}</Td>
-                            <Td>{fences.goals}</Td>
+                            <Td>{data.player}</Td>
+                            <Td>{data.club}</Td>
+                            <Td>{data.goals}</Td>
                         </Tr>
                     </Tbody>
                 ))}

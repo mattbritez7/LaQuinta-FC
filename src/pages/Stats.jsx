@@ -1,27 +1,39 @@
-import { readDateslessDefeatedFences } from '../firebase/api';
+import { readDatesLessDefeatedFences } from '../firebase/lessDefeatedFencesApi';
+import { readDatesScorers } from '../firebase/scorersApi';
 import DinamicTable from '../components/DinamicTable';
 import { useEffect, useState } from 'react';
 
 function Stats() {
 
-  const [fencesData, setFencesData] = useState([]);
+  const [LessDefeatedFencesTableData, setLessDefeatedFencesTableData] = useState([]);
+  const [ScorersTableData, setScorersTableData] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchDataLessDefeatedFences = async () => {
       try {
-        const data = await readDateslessDefeatedFences();
-        setFencesData(data);
+        const data = await readDatesLessDefeatedFences();
+        setLessDefeatedFencesTableData(data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
-    fetchData();
+    const fetchDataScorers = async () => {
+      try {
+        const data = await readDatesScorers();
+        setScorersTableData(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchDataScorers();
+    fetchDataLessDefeatedFences();
   }, []);
 
   return ( 
     <>
-      <DinamicTable fencesData={fencesData}/>
+      <DinamicTable tableData={LessDefeatedFencesTableData}/>
+      <DinamicTable tableData={ScorersTableData}/>
     </>
   )
 }
