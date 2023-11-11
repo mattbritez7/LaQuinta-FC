@@ -1,19 +1,27 @@
 import { readDateslessDefeatedFences } from '../firebase/api';
-import DinamicTable from '../components/DinamicTable'
+import DinamicTable from '../components/DinamicTable';
+import { useEffect, useState } from 'react';
 
 function Stats() {
 
-  console.log(readDateslessDefeatedFences());
-  const goleadores = [{
-    tableName: 'Goleadores',
-    player: 'Leonardo',
-    club: 'fioraza',
-    goals: '3'
-  }]
+  const [fencesData, setFencesData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await readDateslessDefeatedFences();
+        setFencesData(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return ( 
     <>
-      <DinamicTable goleadores={goleadores}/>
+      <DinamicTable fencesData={fencesData}/>
     </>
   )
 }
