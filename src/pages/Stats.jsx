@@ -7,7 +7,7 @@ function Stats() {
   const [fencesData, setFencesData] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchDataLessDefeatedFences = async () => {
       try {
         const data = await readDateslessDefeatedFences();
         setFencesData(data);
@@ -16,7 +16,7 @@ function Stats() {
       }
     };
 
-    fetchData();
+    fetchDataLessDefeatedFences();
   }, []);
 
   return ( 
