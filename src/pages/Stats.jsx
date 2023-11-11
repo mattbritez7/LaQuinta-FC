@@ -1,12 +1,15 @@
 import { readDatesLessDefeatedFences } from '../firebase/lessDefeatedFencesApi';
 import { readDatesScorers } from '../firebase/scorersApi';
+import { readDatesLastDate } from '../firebase/lastDateApi';
 import DinamicTable from '../components/DinamicTable';
+import DinamicTableSoccerField from '../components/DinamicTableSoccerField';
 import { useEffect, useState } from 'react';
 
 function Stats() {
 
   const [LessDefeatedFencesTableData, setLessDefeatedFencesTableData] = useState([]);
   const [ScorersTableData, setScorersTableData] = useState([]);
+  const [lastDateTableData, setLastDateTableData] = useState([]);
 
   useEffect(() => {
     const fetchDataLessDefeatedFences = async () => {
@@ -26,6 +29,17 @@ function Stats() {
         console.error('Error fetching data:', error);
       }
     };
+
+    const fetchDataLastDate = async () => {
+      try {
+        const data = await readDatesLastDate();
+        setLastDateTableData(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchDataLastDate();
     fetchDataScorers();
     fetchDataLessDefeatedFences();
   }, []);
@@ -34,6 +48,7 @@ function Stats() {
     <>
       <DinamicTable tableData={LessDefeatedFencesTableData}/>
       <DinamicTable tableData={ScorersTableData}/>
+      <DinamicTableSoccerField tableData={lastDateTableData}/>
     </>
   )
 }
