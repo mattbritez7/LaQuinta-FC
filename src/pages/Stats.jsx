@@ -2,6 +2,7 @@ import { readDatesLessDefeatedFences } from '../firebase/lessDefeatedFencesApi';
 import { readDatesScorers } from '../firebase/scorersApi';
 import { readDatesLastDate } from '../firebase/lastDateApi';
 import DinamicTable from '../components/DinamicTable';
+import DinamicTableSoccerField from '../components/DinamicTableSoccerField';
 import { useEffect, useState } from 'react';
 
 function Stats() {
@@ -47,7 +48,7 @@ function Stats() {
     <>
       <DinamicTable tableData={LessDefeatedFencesTableData}/>
       <DinamicTable tableData={ScorersTableData}/>
-      <DinamicTable tableData={lastDateTableData}/>
+      <DinamicTableSoccerField tableData={lastDateTableData}/>
     </>
   )
 }

@@ -9,9 +9,11 @@ export const readDatesLastDate = async () => {
     console.log(doc.data());
     readDatesLastDate.push({
       tableName: 'ULTIMA FECHA',
-      player: doc.data().player,
-      club: doc.data().club,
-      goals: doc.data().goals,
+      club1: doc.data().club1,
+      club2: doc.data().club2,
+      date: doc.data().date,
+      time: doc.data().time,
+      result: doc.data().result,
     });
   });
 
