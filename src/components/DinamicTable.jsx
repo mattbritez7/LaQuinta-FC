@@ -1,7 +1,7 @@
 import { TableContainer, Table, Thead, Tr, Th, Tfoot, Tbody, Td} from '@chakra-ui/react'
   
 export default function Contact({tableData}) {
-    
+    console.log(tableData)
     return (
         <>
         <TableContainer>    

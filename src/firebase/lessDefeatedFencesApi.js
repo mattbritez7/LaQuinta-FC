@@ -1,7 +1,7 @@
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from './firebase';
 
-export const readDateslessDefeatedFences = async () => {
+export const readDatesLessDefeatedFences = async () => {
   const querySnapshot = await getDocs(collection(db, 'lessDefeatedFences'));
   const readDatesLessDefeatedFences = [];
 
