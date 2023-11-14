@@ -4,7 +4,7 @@ export default function Contact({tableData, boolean}) {
 
     return (
         <>
-        <TableContainer>    
+        <TableContainer m="25px" border={'1px solid black'}>    
             <h1>{tableData[0]?.tableName}</h1>
                 <Table width={'20%'}>
                     <Thead>

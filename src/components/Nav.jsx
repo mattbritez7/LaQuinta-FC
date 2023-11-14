@@ -12,6 +12,7 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
 const Links = [
   { text: 'Home', url: '/' },
+  { text: 'Torneos', url: '/LaQuinta-FC/stats' },
   { text: 'Nosotros', url: '#AboutUs' },
   { text: 'Contactanos', url: '#Contactus' },
 ];
