@@ -3,17 +3,19 @@ import { readDatesScorers } from '../firebase/scorersApi';
 import { readDatesLastDate } from '../firebase/lastDateApi';
 import { readDatesNextDate } from '../firebase/nextDateApi';
 import { readDatesBanned } from '../firebase/bannedApi';
+import { readDatesSanctioned } from '../firebase/sanctionedApi';
 import DinamicTable from '../components/DinamicTable';
 import DinamicTableSoccerField from '../components/DinamicTableSoccerField';
 import { useEffect, useState } from 'react';
 
 function Stats() {
 
-  const [LessDefeatedFencesTableData, setLessDefeatedFencesTableData] = useState([]);
-  const [ScorersTableData, setScorersTableData] = useState([]);
+  const [lessDefeatedFencesTableData, setLessDefeatedFencesTableData] = useState([]);
+  const [scorersTableData, setScorersTableData] = useState([]);
   const [lastDateTableData, setLastDateTableData] = useState([]);
   const [nextDateTableData, setNextDateTableData] = useState([]);
   const [bannedTableData, setBannedTableData] = useState([]);
+  const [sanctionedTableData, setSanctionedTableData] = useState([]);
 
   useEffect(() => {
     const fetchDataLessDefeatedFences = async () => {
@@ -61,6 +63,16 @@ function Stats() {
       }
     };
 
+    const fetchDataSanctioned = async () => {
+      try {
+        const data = await readDatesSanctioned();
+        setSanctionedTableData(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchDataSanctioned();
     fetchDataBanned();
     fetchDataNextDate();
     fetchDataLastDate();
@@ -70,9 +82,10 @@ function Stats() {
 
   return ( 
     <>
-      <DinamicTable tableData={LessDefeatedFencesTableData}/>
-      <DinamicTable tableData={ScorersTableData}/>
+      <DinamicTable tableData={lessDefeatedFencesTableData}/>
+      <DinamicTable tableData={scorersTableData}/>
       <DinamicTable tableData={bannedTableData} boolean={true}/>
+      <DinamicTable tableData={sanctionedTableData} boolean={true}/>
       <DinamicTableSoccerField tableData={lastDateTableData} boolean={true}/>
       <DinamicTableSoccerField tableData={nextDateTableData} boolean={false}/>
     </>
