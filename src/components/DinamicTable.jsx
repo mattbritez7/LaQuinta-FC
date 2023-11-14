@@ -1,6 +1,6 @@
 import { TableContainer, Table, Thead, Tr, Th, Tfoot, Tbody, Td} from '@chakra-ui/react'
   
-export default function Contact({tableData}) {
+export default function Contact({tableData, boolean}) {
 
     return (
         <>
@@ -11,7 +11,12 @@ export default function Contact({tableData}) {
                     <Tr>
                         <Th><b>Jugador</b></Th>
                         <Th><b>Equipo</b></Th>
-                        <Th><b>Goles</b></Th>
+                        {
+                            boolean ? 
+                            <Th><b>Razon</b></Th>
+                            :
+                            <Th><b>Goles</b></Th>
+                        }
                     </Tr>
                     </Thead>
                 {tableData?.map((data, index) => (
@@ -19,7 +24,12 @@ export default function Contact({tableData}) {
                         <Tr>
                             <Td>{data.player}</Td>
                             <Td>{data.club}</Td>
-                            <Td>{data.goals}</Td>
+                            {
+                                boolean ? 
+                                <Td>{data.reason}</Td>
+                                : 
+                                <Td>{data.goals}</Td>
+                            }
                         </Tr>
                     </Tbody>
                 ))}
