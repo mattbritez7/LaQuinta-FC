@@ -5,7 +5,7 @@ import Index from './pages/index';
 
 function App() {
   return (
-    <BrowserRouter basename="/LaQuinta-FC">
+    <BrowserRouter>
 
      <Routes>
       <Route path="/" element={<Index />} />

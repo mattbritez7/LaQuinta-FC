@@ -36,7 +36,7 @@ export default function Simple() {
 
   const LinksHome = [
     { text: 'Home', url: '#' },
-    { text: 'Torneos', url: '/LaQuinta-FC/stats' },
+    { text: 'Torneos', url: '/stats' },
     { text: 'Nosotros', url: '#AboutUs' },
     { text: 'Contactanos', url: '#Contactus' },
   ];
