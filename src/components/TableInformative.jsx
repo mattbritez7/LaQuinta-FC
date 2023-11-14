@@ -83,7 +83,7 @@ function TableInformative() {
 
   return ( 
     <>
-      <Box height={'100px'} width={"100%"} border={'1px solid black'}>
+      <Box height={'100px'} width={"100%"} border={'1px solid black'} id='#InformativeTable'>
        <Text fontSize={"20px"} textAlign={'center'} pt={"15px"}>TABLERO INFORMATIVO</Text>
       </Box>  
       <Flex

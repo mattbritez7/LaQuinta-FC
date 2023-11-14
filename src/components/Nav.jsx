@@ -9,13 +9,8 @@ import {
   Stack,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { useLocation } from 'react-router-dom';
 
-const Links = [
-  { text: 'Home', url: '/' },
-  { text: 'Torneos', url: '/LaQuinta-FC/stats' },
-  { text: 'Nosotros', url: '#AboutUs' },
-  { text: 'Contactanos', url: '#Contactus' },
-];
 
 const NavLink = (props) => {
   const { children, href } = props;
@@ -37,6 +32,19 @@ const NavLink = (props) => {
 
 export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const location = useLocation();
+
+  const LinksHome = [
+    { text: 'Home', url: '#' },
+    { text: 'Torneos', url: '/LaQuinta-FC/stats' },
+    { text: 'Nosotros', url: '#AboutUs' },
+    { text: 'Contactanos', url: '#Contactus' },
+  ];
+
+  const LinksStats = [
+    { text: 'Home', url: '/' },
+    { text: 'Tablero informativo', url: '#InformativeTable' },
+  ];
 
   return (
     <>
@@ -54,9 +62,14 @@ export default function Simple() {
           </Box>
           <HStack spacing={8} alignItems={'center'}>
             <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
-              {Links.map((link) => (
+            {location.pathname === '/' ? LinksHome.map((link) => (
                 <NavLink key={link.text} href={link.url}>{link.text}</NavLink>
-              ))}
+              ))
+              :
+              LinksStats.map((link) => (
+                <NavLink key={link.text} href={link.url}>{link.text}</NavLink>
+              ))
+            }
             </HStack>
           </HStack>
         </Flex>
@@ -64,9 +77,14 @@ export default function Simple() {
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
-              {Links.map((link) => (
+              {location.pathname === '/' ? LinksHome.map((link) => (
                 <NavLink key={link.text} href={link.url}>{link.text}</NavLink>
-              ))}
+              )) 
+              : 
+              LinksStats.map((link) => (
+                <NavLink key={link.text} href={link.url}>{link.text}</NavLink>
+              ))
+            } 
             </Stack>
           </Box>
         ) : null}
