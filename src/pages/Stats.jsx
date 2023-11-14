@@ -2,6 +2,7 @@ import { readDatesLessDefeatedFences } from '../firebase/lessDefeatedFencesApi';
 import { readDatesScorers } from '../firebase/scorersApi';
 import { readDatesLastDate } from '../firebase/lastDateApi';
 import { readDatesNextDate } from '../firebase/nextDateApi';
+import { readDatesBanned } from '../firebase/bannedApi';
 import DinamicTable from '../components/DinamicTable';
 import DinamicTableSoccerField from '../components/DinamicTableSoccerField';
 import { useEffect, useState } from 'react';
@@ -12,6 +13,7 @@ function Stats() {
   const [ScorersTableData, setScorersTableData] = useState([]);
   const [lastDateTableData, setLastDateTableData] = useState([]);
   const [nextDateTableData, setNextDateTableData] = useState([]);
+  const [bannedTableData, setBannedTableData] = useState([]);
 
   useEffect(() => {
     const fetchDataLessDefeatedFences = async () => {
@@ -50,6 +52,16 @@ function Stats() {
       }
     };
 
+    const fetchDataBanned = async () => {
+      try {
+        const data = await readDatesBanned();
+        setBannedTableData(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchDataBanned();
     fetchDataNextDate();
     fetchDataLastDate();
     fetchDataScorers();
@@ -60,6 +72,7 @@ function Stats() {
     <>
       <DinamicTable tableData={LessDefeatedFencesTableData}/>
       <DinamicTable tableData={ScorersTableData}/>
+      <DinamicTable tableData={bannedTableData} boolean={true}/>
       <DinamicTableSoccerField tableData={lastDateTableData} boolean={true}/>
       <DinamicTableSoccerField tableData={nextDateTableData} boolean={false}/>
     </>
