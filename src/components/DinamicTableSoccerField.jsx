@@ -1,10 +1,10 @@
-import { TableContainer, Table, Thead, Tr, Th, Tfoot, Tbody, Td, Text} from '@chakra-ui/react'
+import { TableContainer, Table, Thead, Tr, Th, Tbody, Td, Text} from '@chakra-ui/react'
   
 export default function DinamicTableSoccerField({tableData, boolean }) {
 
     return (
         <>
-         <TableContainer p="30px" m="25px" border={'1px solid #00BFFF'} textAlign={'center'} borderTop="4px solid #2e9dff" borderRadius="5px">  
+         <TableContainer p="30px" m="25px" border={'1px solid #00BFFF'} textAlign={'center'} bg={'white'} borderTop="4px solid #2e9dff" borderRadius="5px" mt={'5%'}>  
          <Text fontSize={'18px'} mb={'20px'}><b>{tableData[0]?.tableName}</b></Text>
                 <Table width={'20%'}>
                   <Thead borderTop="1px solid black"> 
