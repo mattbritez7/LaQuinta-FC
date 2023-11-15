@@ -9,7 +9,6 @@ import DinamicTableSoccerField from '../components/DinamicTableSoccerField';
 import { useEffect, useState } from 'react';
 import {Text, Flex} from '@chakra-ui/react';
 import SoccerField from '../assets/soccerField.jpg';
-import SelectLeague from './SelectLeague';
 
 function TableInformative() {
 
@@ -85,8 +84,16 @@ function TableInformative() {
 
   return ( 
     <>
-      <SelectLeague />
-      <Text fontSize={"25px"} color={'#6a859c'} textAlign={'center'} pt={"25px"} pb={"25px"}>TABLERO INFORMATIVO</Text>
+      <Text 
+        fontSize={"25px"} 
+        color={'#6a859c'} 
+        textAlign={'center'} 
+        pt={"25px"} 
+        pb={"25px"} 
+        borderTop={'1px solid black'}
+      >
+        TABLERO INFORMATIVO
+      </Text>
       <Flex
         direction={{ base: "column", md: "row" }}
         wrap="wrap"
