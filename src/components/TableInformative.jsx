@@ -8,6 +8,7 @@ import DinamicTable from '../components/DinamicTable';
 import DinamicTableSoccerField from '../components/DinamicTableSoccerField';
 import { useEffect, useState } from 'react';
 import {Box, Text, Flex} from '@chakra-ui/react';
+import SoccerField from '../assets/soccerField.jpg'
 
 function TableInformative() {
 
@@ -83,13 +84,21 @@ function TableInformative() {
 
   return ( 
     <>
-      <Box height={'100px'} width={"100%"} border={'1px solid black'} id='#InformativeTable'>
-       <Text fontSize={"20px"} textAlign={'center'} pt={"15px"}>TABLERO INFORMATIVO</Text>
+      <Box 
+        height={'100px'} width={"100%"} 
+        border={'1px solid black'} 
+        id='#InformativeTable'
+      >
+      <Text fontSize={"25px"} color={'#6a859c'} textAlign={'center'} pt={"25px"}>TABLERO INFORMATIVO</Text>
       </Box>  
       <Flex
         direction={{ base: "column", md: "row" }}
         wrap="wrap"
         justifyContent="center"
+        background={`linear-gradient(rgba(0, 0, 0, 0.69), rgba(0, 0, 0, 0.69)), url(${SoccerField})`}
+        backgroundSize="cover"
+        backgroundAttachment="fixed"
+        maxW="100%"
       >
       <DinamicTable tableData={lessDefeatedFencesTableData}/>
       <DinamicTable tableData={scorersTableData}/>
