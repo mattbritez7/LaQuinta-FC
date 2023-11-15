@@ -18,12 +18,14 @@ const NavLink = (props) => {
   return (
     <Box
       as="a"
-      px={6}
-      mt={6}
+      px={3}
       py={5}
+      mt={{base: 0, md: '20px'}}
       rounded={'md'}
       href={href}
       fontSize={'18px'}
+      bg={'white'}
+      zIndex={999}
     >
       {children}
     </Box>
@@ -75,8 +77,8 @@ export default function Simple() {
         </Flex>
 
         {isOpen ? (
-          <Box pb={4} display={{ md: 'none' }}>
-            <Stack as={'nav'} spacing={4}>
+          <Box display={{ md: 'none' }}>
+            <Stack as={'nav'} spacing={4} mt={5}>
               {location.pathname === '/' ? LinksHome.map((link) => (
                 <NavLink key={link.text} href={link.url}>{link.text}</NavLink>
               )) 
