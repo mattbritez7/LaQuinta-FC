@@ -8,7 +8,7 @@ import DinamicTable from '../components/DinamicTable';
 import DinamicTableSoccerField from '../components/DinamicTableSoccerField';
 import { useEffect, useState } from 'react';
 import {Box, Text, Flex} from '@chakra-ui/react';
-import SoccerField from '../assets/soccerField.jpg'
+import SoccerField from '../assets/soccerField.jpg';
 
 function TableInformative() {
 

@@ -5,25 +5,28 @@ export default function DinamicTable({tableData, boolean}) {
     return (
         <>
             <TableContainer 
-                p="30px" 
-                m="25px" 
-                border={'1px solid #00BFFF'} 
+                p={{base: 0, md: "30px" }} 
+                m={{base: 0, md: "25px" }} 
+                border={'1px solid #00BFFF'}
+                ml={{base: '5px', md: 0 }} 
                 textAlign={'center'} 
                 borderTop="4px solid #2e9dff" 
                 borderRadius="5px" 
-                bg={'white'} mt={'5%'}
+                bg={'white'} 
+                mt={'5%'}
+                width={{ base: '98%', md: '27%' }}
             >    
-            <Text fontSize={'18px'} mb={'20px'}><b>{tableData[0]?.tableName}</b></Text>
-                <Table width={'20%'}>
+            <Text fontSize={{base: '16px', md: "18px" }} mb={'20px'} mt={{base: '16px', md: 0 }}><b>{tableData[0]?.tableName}</b></Text>
+                <Table>
                     <Thead borderTop="1px solid black"> 
                     <Tr>
-                        <Th fontSize={'18px'}><b>Jugador</b></Th>
-                        <Th fontSize={'18px'}><b>Equipo</b></Th>
+                        <Th fontSize={{base: '16px', md: "18px" }}><b>Jugador</b></Th>
+                        <Th fontSize={{base: '16px', md: "18px" }}><b>Equipo</b></Th>
                         {
                             boolean ? 
-                            <Th fontSize={'18px'}><b>Razon</b></Th>
+                            <Th fontSize={{base: '16px', md: "18px" }}><b>Razon</b></Th>
                             :
-                            <Th fontSize={'18px'}><b>Goles</b></Th>
+                            <Th fontSize={{base: '16px', md: "18px" }}><b>Goles</b></Th>
                         }
                     </Tr>
                     </Thead>
