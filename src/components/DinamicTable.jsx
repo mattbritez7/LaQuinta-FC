@@ -1,6 +1,6 @@
 import { TableContainer, Table, Thead, Tr, Th, Tfoot, Tbody, Td, Text} from '@chakra-ui/react'
   
-export default function Contact({tableData, boolean}) {
+export default function DinamicTable({tableData, boolean}) {
 
     return (
         <>
