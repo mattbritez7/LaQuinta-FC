@@ -1,6 +1,7 @@
 import { TableContainer, Table, Thead, Tr, Th, Tbody, Td, Text} from '@chakra-ui/react';
 
-const PosicionsTable = () => {
+const PosicionsTable = ({tableData}) => {
+
   return (
     <>
     <Text 
@@ -24,7 +25,7 @@ const PosicionsTable = () => {
        mt={'5%'}
        width={'98%'}
    >  
-    <Text fontSize={'18px'} mb={'20px'} mt={{base: '16px', md: 0 }}><b>LIGA 1</b></Text>
+    <Text fontSize={'18px'} mb={'20px'} mt={{base: '16px', md: 0 }}><b>{tableData[0]?.tableName}</b></Text>
            <Table width={{base:'90%', md: '100%'}}>
              <Thead borderTop="1px solid black"> 
                <Tr>
@@ -39,16 +40,21 @@ const PosicionsTable = () => {
                    <Th fontSize={{base: '16px', md: "18px" }}><b>PTS</b></Th>
                </Tr>
                </Thead>
-               {/* {tableData?.map((data, index) => ( */}
-                   <Tbody>
+               {tableData?.map((data, index) => (
+                   <Tbody key={index}>
                        <Tr>
-                           <Td>ayuda</Td>
-                           <Td>ayuda</Td>
-                           <Td>ayuda</Td>
-                           <Td>ayuda</Td>
+                           <Td>{index + 1}</Td>
+                           <Td>{data.club}</Td>
+                           <Td>{data.j}</Td>
+                           <Td>{data.g}</Td>
+                           <Td>{data.p}</Td>
+                           <Td>{data.gf}</Td>
+                           <Td>{data.ge}</Td>
+                           <Td>{data.dg}</Td>
+                           <Td>{data.pts}</Td>
                        </Tr>
                    </Tbody>
-               {/* ))} */}
+               ))}
            </Table>
        </TableContainer>
    </>
