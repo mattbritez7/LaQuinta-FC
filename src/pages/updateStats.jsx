@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import * as XLSX from 'xlsx';
-import  clubsCrud  from '../firebase/clubsCrud';
+import clubsCrud from '../firebase/clubsCrud';
 
 const ExcelUploader = () => {
   const [file, setFile] = useState([]);
