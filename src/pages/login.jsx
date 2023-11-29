@@ -14,6 +14,8 @@ import {
   InputRightElement
 } from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
@@ -21,7 +23,30 @@ const CFaLock = chakra(FaLock);
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
   const handleShowClick = () => setShowPassword(!showPassword);
+
+  const auth = getAuth();
+  
+  const handleLogin = (e) => {
+    e.preventDefault(); // Evita la recarga de la página
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        navigate("/update-stats");
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error(errorCode, errorMessage);
+      });
+  };
 
   return (
     <Flex
@@ -41,7 +66,7 @@ const Login = () => {
         <Avatar bg="teal.500" />
         <Heading color="teal.400">Bienvenido</Heading>
         <Box minW={{ base: "90%", md: "468px" }}>
-          <form>
+          <form onSubmit={handleLogin}>
             <Stack
               spacing={4}
               p="1rem"
@@ -54,7 +79,7 @@ const Login = () => {
                     pointerEvents="none"
                     children={<CFaUserAlt color="gray.300" />}
                   />
-                  <Input type="alphanumber" placeholder="Usuario" />
+                  <Input type="alphanumber" placeholder="Email" onChange={(e)=> setEmail(e.target.value)} />
                 </InputGroup>
               </FormControl>
               <FormControl>
@@ -67,6 +92,7 @@ const Login = () => {
                   <Input
                     type={showPassword ? "text" : "password"}
                     placeholder="Contraseña"
+                    onChange={(e)=> setPassword(e.target.value)}
                   />
                   <InputRightElement width="4.5rem">
                     <Button h="1.75rem" size="sm" mr={'10px'} onClick={handleShowClick}>
