@@ -35,7 +35,6 @@ export const clubsAdd = async (clubData, leagueIdentifier) => {
 };
 
 export const clubsGet = async (club) => {
-
   const querySnapshot = await getDocs(collection(db, club));
   const readDatesClub = [];
 
@@ -44,23 +43,24 @@ export const clubsGet = async (club) => {
     const points = doc.data().g * 3 + doc.data().e * 1;
     const diferentGoals = doc.data().gf - doc.data().ge;
 
-    if(club == 'clubs1') {
-      readDatesClub.push({
-        tableName: 'CATEGORÍA A',
-        clubName: doc.data().clubName,
-        players: doc.data().players,
-        j: doc.data().j,
-        g: doc.data().g,
-        p: doc.data().p,
-        e: doc.data().e,
-        gf: doc.data().gf,
-        ge: doc.data().ge,
-        dg: diferentGoals,
-        pts: points,
-      });
-    }
-  });
-  console.log(readDatesClub + 'que es esto')
-  return readDatesClub;
-}
+    // Construir dinámicamente el nombre de la tabla
+    const tableName = `CATEGORÍA ${club.toUpperCase()}`;
 
+    readDatesClub.push({
+      tableName,
+      clubName: doc.data().clubName,
+      players: doc.data().players,
+      j: doc.data().j,
+      g: doc.data().g,
+      p: doc.data().p,
+      e: doc.data().e,
+      gf: doc.data().gf,
+      ge: doc.data().ge,
+      dg: diferentGoals,
+      pts: points,
+    });
+  });
+
+  console.log(readDatesClub + 'que es esto');
+  return readDatesClub;
+};

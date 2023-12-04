@@ -1,7 +1,7 @@
 import { TableContainer, Table, Thead, Tr, Th, Tbody, Td, Text} from '@chakra-ui/react';
 
 const PosicionsTable = ({tableData}) => {
-
+  console.log(tableData)
   return (
     <>
     <Text 
