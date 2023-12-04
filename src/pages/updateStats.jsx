@@ -1,12 +1,13 @@
-import { handleFileChange } from '../excelConfig/excelConfig'
+import ExcelUploader from '../components/ExcelUploader';
 
-const ExcelUploader = () => {
-
+const UpdateStats = () => {
   return (
     <div>
-      <input type="file" accept=".xls, .xlsx" onChange={handleFileChange} />
-    </div> 
+      <ExcelUploader leagueIdentifier="clubs1"/>
+      <ExcelUploader leagueIdentifier="clubs2"/>
+      <ExcelUploader leagueIdentifier="clubs3"/>
+    </div>
   );
 };
 
-export default ExcelUploader;
+export default UpdateStats;

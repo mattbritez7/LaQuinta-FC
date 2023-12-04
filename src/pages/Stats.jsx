@@ -8,27 +8,27 @@ import { useEffect, useState } from 'react';
 
 function Stats() {
 
-  const [positionsLeagueOneTableData, setPositionsLeagueOneTableData] = useState([]);
+  const [selectedLeague, setSelectedLeague] = useState('clubs1');
+  const [positionsTableData, setPositionsTableData] = useState([]);
 
   useEffect(() => {
-    const fetchDataPositionsLeagueOne = async () => {
+    const fetchData = async () => {
       try {
-        const data = await clubsGet('clubs1');
-        console.log(data)
-        setPositionsLeagueOneTableData(data);
+        const data = await clubsGet(selectedLeague);
+        setPositionsTableData(data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
-    fetchDataPositionsLeagueOne();
-  }, []);
+    fetchData();
+  }, [selectedLeague]);
 
   return (
     <>
       <Nav />
-        <SelectLeague />
-        <PosicionsTable tableData={positionsLeagueOneTableData}/>
+        <SelectLeague selectedLeague={selectedLeague} setSelectedLeague={setSelectedLeague} />
+        <PosicionsTable tableData={positionsTableData}/>
         <TableInformative />
       <Footer />
     </>
