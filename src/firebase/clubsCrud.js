@@ -1,8 +1,8 @@
 import { doc, setDoc, getDocs, collection } from 'firebase/firestore';
 import { db } from './firebase';
 
-export const clubsAdd = async (clubData) => { 
-
+export const clubsAdd = async (clubData, leagueIdentifier) => { 
+  console.log(leagueIdentifier)
   for (let i = 1; i < clubData.length; i++) {
     const club = clubData[i];
     const clubName = club['A'];
@@ -14,7 +14,7 @@ export const clubsAdd = async (clubData) => {
     const gf = club['G'];
     const ge = club['H'];
 
-    const clubRef = doc(db, 'clubs1', clubName);
+    const clubRef = doc(db, leagueIdentifier, clubName);
     
     try {
       await setDoc(clubRef, {
