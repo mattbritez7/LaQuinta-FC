@@ -34,6 +34,7 @@ const PosicionsTable = ({tableData}) => {
                    <Th fontSize={{base: '16px', md: "18px" }}><b>J</b></Th>              
                    <Th fontSize={{base: '16px', md: "18px" }}><b>G</b></Th>
                    <Th fontSize={{base: '16px', md: "18px" }}><b>P</b></Th>
+                   <Th fontSize={{base: '16px', md: "18px" }}><b>E</b></Th>
                    <Th fontSize={{base: '16px', md: "18px" }}><b>GF</b></Th>
                    <Th fontSize={{base: '16px', md: "18px" }}><b>GE</b></Th>
                    <Th fontSize={{base: '16px', md: "18px" }}><b>DG</b></Th>
@@ -44,10 +45,11 @@ const PosicionsTable = ({tableData}) => {
                    <Tbody key={index}>
                        <Tr>
                            <Td>{index + 1}</Td>
-                           <Td>{data.club}</Td>
+                           <Td>{data.clubName}</Td>
                            <Td>{data.j}</Td>
                            <Td>{data.g}</Td>
                            <Td>{data.p}</Td>
+                           <Td>{data.e}</Td>
                            <Td>{data.gf}</Td>
                            <Td>{data.ge}</Td>
                            <Td>{data.dg}</Td>
