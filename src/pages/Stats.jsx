@@ -3,7 +3,7 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import PosicionsTable from "../components/PosicionsTable";
 import SelectLeague from '../components/SelectLeague';
-import { readDatesPositionsLeagueOne } from '../firebase/positionsLeagueOne';
+import { clubsGet } from "../firebase/clubsCrud";
 import { useEffect, useState } from 'react';
 
 function Stats() {
@@ -13,7 +13,8 @@ function Stats() {
   useEffect(() => {
     const fetchDataPositionsLeagueOne = async () => {
       try {
-        const data = await readDatesPositionsLeagueOne();
+        const data = await clubsGet('clubs1');
+        console.log(data)
         setPositionsLeagueOneTableData(data);
       } catch (error) {
         console.error('Error fetching data:', error);
