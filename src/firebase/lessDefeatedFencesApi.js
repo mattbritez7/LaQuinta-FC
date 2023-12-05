@@ -1,4 +1,4 @@
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, setDoc, doc } from 'firebase/firestore';
 import { db } from './firebase';
 
 export const readDatesLessDefeatedFences = async () => {
@@ -16,3 +16,28 @@ export const readDatesLessDefeatedFences = async () => {
 
   return readDatesLessDefeatedFences;
 };
+
+export const addLessDefeatedFences = async (clubData, leagueIdentifier) => { 
+  console.log(leagueIdentifier)
+  
+  for (let i = 1; i < clubData.length; i++) {
+    const club = clubData[i];
+    const player = club['A'];
+    const clubName = club['B'];
+    const goals = club['C'];
+
+    const clubRef = doc(db, leagueIdentifier, clubName);
+    
+    try {
+      await setDoc(clubRef, {
+          player,
+          clubName,
+          goals
+      });
+      console.log(`Equipo ${clubName} agregado o actualizado con éxito.`);
+    } catch (error) {
+      console.error(`Error al agregar equipo:`, error);
+    }
+  }
+};
+

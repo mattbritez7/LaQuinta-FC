@@ -1,4 +1,4 @@
-import { readDatesLessDefeatedFences } from '../firebase/lessDefeatedFencesApi';
+import { addLessDefeatedFences } from '../firebase/lessDefeatedFencesApi';
 import { readDatesScorers } from '../firebase/scorersApi';
 import { readDatesLastDate } from '../firebase/lastDateApi';
 import { readDatesNextDate } from '../firebase/nextDateApi';
@@ -22,7 +22,7 @@ function TableInformative() {
   useEffect(() => {
     const fetchDataLessDefeatedFences = async () => {
       try {
-        const data = await readDatesLessDefeatedFences();
+        const data = await addLessDefeatedFences('clubs1');
         setLessDefeatedFencesTableData(data);
       } catch (error) {
         console.error('Error fetching data:', error);
