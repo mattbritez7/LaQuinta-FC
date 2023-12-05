@@ -1,9 +1,4 @@
-import { addLessDefeatedFences } from '../firebase/lessDefeatedFencesApi';
-import { readDatesScorers } from '../firebase/scorersApi';
-import { readDatesLastDate } from '../firebase/lastDateApi';
-import { readDatesNextDate } from '../firebase/nextDateApi';
-import { readDatesBanned } from '../firebase/bannedApi';
-import { readDatesSanctioned } from '../firebase/sanctionedApi';
+import { readDates } from '../firebase/firebaseFunctions';
 import DinamicTable from '../components/DinamicTable';
 import DinamicTableSoccerField from '../components/DinamicTableSoccerField';
 import { useEffect, useState } from 'react';
@@ -20,66 +15,29 @@ function TableInformative() {
   const [sanctionedTableData, setSanctionedTableData] = useState([]);
 
   useEffect(() => {
-    const fetchDataLessDefeatedFences = async () => {
-      try {
-        const data = await addLessDefeatedFences('clubs1');
-        setLessDefeatedFencesTableData(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
 
-    const fetchDataScorers = async () => {
-      try {
-        const data = await readDatesScorers();
-        setScorersTableData(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+    const fetchData = async () => {
 
-    const fetchDataLastDate = async () => {
-      try {
-        const data = await readDatesLastDate();
-        setLastDateTableData(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+    const lessDefeatedFences = await readDates('lessDefeatedFences', 'VALLAS MENOS VENCIDAS');
+    setLessDefeatedFencesTableData(lessDefeatedFences);
 
-    const fetchDataNextDate = async () => {
-      try {
-        const data = await readDatesNextDate();
-        setNextDateTableData(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+    const banned = await readDates('banned', 'VETADOS');
+    setBannedTableData(banned);
 
-    const fetchDataBanned = async () => {
-      try {
-        const data = await readDatesBanned();
-        setBannedTableData(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+    const lastDate = await readDates('lastDate', 'ULTIMA FECHA');
+    setLastDateTableData(lastDate);
 
-    const fetchDataSanctioned = async () => {
-      try {
-        const data = await readDatesSanctioned();
-        setSanctionedTableData(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+    const nextDate = await readDates('nextDate', 'SIGUIENTE FECHA');
+    setNextDateTableData(nextDate);
 
-    fetchDataSanctioned();
-    fetchDataBanned();
-    fetchDataNextDate();
-    fetchDataLastDate();
-    fetchDataScorers();
-    fetchDataLessDefeatedFences();
+    const sanctioned = await readDates('sanctioned', 'SANCIONADOS');
+    setSanctionedTableData(sanctioned);
+
+    const scorers = await readDates('scorers', 'GOLEADORES');
+    setScorersTableData(scorers);
+
+    }
+  fetchData()
   }, []);
 
   return ( 
