@@ -31,7 +31,8 @@ const NavLink = (props) => {
       onClick={handleNavigation}
       fontSize={'18px'}
       bg={'white'}
-      zIndex={999}
+      zIndex={999}  
+    _hover={{ cursor: 'pointer' }}
     >
       {children}
     </Box>
@@ -43,15 +44,14 @@ export default function Simple() {
   const location = useLocation();
 
   const LinksHome = [
-    { text: 'Home', url: '#' },
     { text: 'Torneos', url: '/#/stats' },
-    { text: 'Nosotros', url: '#AboutUs' },
-    { text: 'Contactanos', url: '#Contactus' },
+    { text: 'Nosotros', url: '/#/#AboutUs' },
+    { text: 'Contactanos', url: '/#/#Contactus' },
   ];
 
   const LinksStats = [
     { text: 'Home', url: '/' },
-    { text: 'Tablero informativo', url: '#InformativeTable' },
+    { text: 'Tablero informativo', url: '/#/#InformativeTable' },
   ];
 
   return (
