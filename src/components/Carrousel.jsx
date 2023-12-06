@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Box,
   IconButton,
@@ -7,7 +7,7 @@ import {
   Heading,
   Text,
   Container,
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
 
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 
@@ -24,17 +24,29 @@ const settings = {
   autoplaySpeed: 5000,
   slidesToShow: 1,
   slidesToScroll: 1,
-}
+};
 
 export default function CaptionCarousel({ cards, size, borderRadius }) {
+  const [slider, setSlider] = useState(null);
 
-  const [slider, setSlider] = React.useState(null);
+  const top = useBreakpointValue({ base: '90%', md: '50%' });
+  const side = useBreakpointValue({ base: '30%', md: '40px' });
 
-  const top = useBreakpointValue({ base: '90%', md: '50%' })
-  const side = useBreakpointValue({ base: '30%', md: '40px' })
-  
+  useEffect(() => {
+    // Check if slider exists before accessing its methods
+    if (slider) {
+      slider.slickNext(); // You can also use slickPrev or other methods here if needed
+    }
+  }, [slider]);
+
   return (
-    <Box position={'relative'} height={size[0].height}  width={{ base: size[0].widthMobile, md: size[0].width }} overflow={'hidden'} borderRadius={borderRadius[0].size}>
+    <Box
+      position={'relative'}
+      height={size[0].height}
+      width={{ base: size[0].widthMobile, md: size[0].width }}
+      overflow={'hidden'}
+      borderRadius={borderRadius[0].size}
+    >
       {/* CSS files for react-slick */}
       <link
         rel="stylesheet"
@@ -55,7 +67,8 @@ export default function CaptionCarousel({ cards, size, borderRadius }) {
         top={top}
         transform={'translate(0%, -50%)'}
         zIndex={2}
-        onClick={() => slider?.slickPrev()}>
+        onClick={() => slider?.slickPrev()}
+      >
         <BiLeftArrowAlt size="40px" />
       </IconButton>
       {/* Right Icon */}
@@ -67,7 +80,8 @@ export default function CaptionCarousel({ cards, size, borderRadius }) {
         top={top}
         transform={'translate(0%, -50%)'}
         zIndex={2}
-        onClick={() => slider?.slickNext()}>
+        onClick={() => slider?.slickNext()}
+      >
         <BiRightArrowAlt size="40px" />
       </IconButton>
       {/* Slider */}
@@ -80,7 +94,8 @@ export default function CaptionCarousel({ cards, size, borderRadius }) {
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
             height="85vh"
-            backgroundImage={`linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(${card.image})`}>
+            backgroundImage={`linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(${card.image})`}
+          >
             {/* This is the block you need to change, to customize the caption */}
             <Container size="container.lg" height="600px" position="relative">
               <Stack
@@ -92,10 +107,14 @@ export default function CaptionCarousel({ cards, size, borderRadius }) {
                 transform="translate(0, -50%)"
                 pr={'6%'}
               >
-                <Heading color="white" fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }} textAlign={"center"}>
+                <Heading
+                  color="white"
+                  fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
+                  textAlign={'center'}
+                >
                   {card.title}
                 </Heading>
-                <Text fontSize={"30px"} color="#fd0505" textAlign={"center"}>
+                <Text fontSize={'30px'} color="#fd0505" textAlign={'center'}>
                   {card.text}
                 </Text>
               </Stack>
@@ -104,5 +123,5 @@ export default function CaptionCarousel({ cards, size, borderRadius }) {
         ))}
       </Slider>
     </Box>
-  )
+  );
 }
