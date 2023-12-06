@@ -30,7 +30,7 @@ function Stats() {
       <Nav />
         <SelectLeague selectedLeague={selectedLeague} setSelectedLeague={setSelectedLeague} />
         <PosicionsTable tableData={positionsTableData}/>
-        <TableInformative />
+        <TableInformative selectedLeague={selectedLeague}/>
       <Footer />
     </>
   )

@@ -9,11 +9,17 @@ import {
   Stack,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 
 const NavLink = (props) => {
-  const { children, href } = props;
+  const { children, to } = props;
+
+  const handleNavigation = (event) => {
+    event.preventDefault();
+    window.location.href = to;
+  };
+
 
   return (
     <Box
@@ -22,7 +28,7 @@ const NavLink = (props) => {
       py={5}
       mt={{base: 0, md: '20px'}}
       rounded={'md'}
-      href={href}
+      onClick={handleNavigation}
       fontSize={'18px'}
       bg={'white'}
       zIndex={999}
@@ -38,7 +44,7 @@ export default function Simple() {
 
   const LinksHome = [
     { text: 'Home', url: '#' },
-    { text: 'Torneos', url: '/stats' },
+    { text: 'Torneos', url: '/#/stats' },
     { text: 'Nosotros', url: '#AboutUs' },
     { text: 'Contactanos', url: '#Contactus' },
   ];
@@ -65,11 +71,11 @@ export default function Simple() {
           <HStack spacing={8} alignItems={'center'}>
             <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
             {location.pathname === '/' ? LinksHome.map((link) => (
-                <NavLink key={link.text} href={link.url}>{link.text}</NavLink>
+                <NavLink key={link.text}  to={link.url}>{link.text}</NavLink>
               ))
               :
               LinksStats.map((link) => (
-                <NavLink key={link.text} href={link.url}>{link.text}</NavLink>
+                <NavLink key={link.text} to={link.url}>{link.text}</NavLink>
               ))
             }
             </HStack>

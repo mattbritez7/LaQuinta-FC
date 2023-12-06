@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import {Text, Flex} from '@chakra-ui/react';
 import SoccerField from '../assets/soccerField.jpg';
 
-function TableInformative() {
+function TableInformative({ selectedLeague }) {
 
   const [lessDefeatedFencesTableData, setLessDefeatedFencesTableData] = useState([]);
   const [scorersTableData, setScorersTableData] = useState([]);
@@ -18,27 +18,28 @@ function TableInformative() {
 
     const fetchData = async () => {
 
-    const lessDefeatedFences = await readDates('lessDefeatedFences', 'VALLAS MENOS VENCIDAS');
-    setLessDefeatedFencesTableData(lessDefeatedFences);
+      const lessDefeatedFences = await readDates(`${selectedLeague}_lessDefeatedFences`, 'VALLAS MENOS VENCIDAS');
+      setLessDefeatedFencesTableData(lessDefeatedFences);
 
-    const banned = await readDates('banned', 'VETADOS');
-    setBannedTableData(banned);
+      const banned = await readDates(`${selectedLeague}_banned`, 'VETADOS');
+      setBannedTableData(banned);
 
-    const lastDate = await readDates('lastDate', 'ULTIMA FECHA');
-    setLastDateTableData(lastDate);
+      const lastDate = await readDates(`${selectedLeague}_lastDate`, 'ULTIMA FECHA');
+      setLastDateTableData(lastDate);
 
-    const nextDate = await readDates('nextDate', 'SIGUIENTE FECHA');
-    setNextDateTableData(nextDate);
+      const nextDate = await readDates(`${selectedLeague}_nextDate`, 'SIGUIENTE FECHA');
+      setNextDateTableData(nextDate);
 
-    const sanctioned = await readDates('sanctioned', 'SANCIONADOS');
-    setSanctionedTableData(sanctioned);
+      const sanctioned = await readDates(`${selectedLeague}_sanctioned`, 'SANCIONADOS');
+      setSanctionedTableData(sanctioned);
 
-    const scorers = await readDates('scorers', 'GOLEADORES');
-    setScorersTableData(scorers);
+      const scorers = await readDates(`${selectedLeague}_scorers`, 'GOLEADORES');
+      setScorersTableData(scorers);
 
     }
-  fetchData()
-  }, []);
+    
+  fetchData();
+  }, [selectedLeague]);
 
   return ( 
     <>
