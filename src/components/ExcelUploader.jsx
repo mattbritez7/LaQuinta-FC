@@ -1,6 +1,6 @@
 import { handleFileChange } from '../excelConfig/excelConfig';
 
-const ExcelUploader = ({ leagueIdentifier }) => {
+const ExcelUploaderLeague = ({ leagueIdentifier }) => {
   const handleChange = (e) => {
     handleFileChange(e, leagueIdentifier);
     console.log(leagueIdentifier)
@@ -13,4 +13,4 @@ const ExcelUploader = ({ leagueIdentifier }) => {
   );
 };
 
-export default ExcelUploader;
+export default ExcelUploaderLeague;

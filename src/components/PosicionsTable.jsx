@@ -41,7 +41,7 @@ const PosicionsTable = ({tableData}) => {
                    <Th fontSize={{base: '16px', md: "18px" }}><b>PTS</b></Th>
                </Tr>
                </Thead>
-               {tableData?.map((data, index) => (
+               {tableData?.sort((a, b) => a.orderIndex - b.orderIndex).map((data, index) => (
                    <Tbody key={index}>
                        <Tr>
                            <Td>{index + 1}</Td>

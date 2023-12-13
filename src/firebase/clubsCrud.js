@@ -3,14 +3,14 @@ import { db } from './firebase';
 
 export const clubsAdd = async (clubData, leagueIdentifier) => { 
   console.log(leagueIdentifier)
-  for (let i = 1; i < clubData.length; i++) {
+  for (let i = 2; i < clubData.length; i++) {
     const club = clubData[i];
     const clubName = club['A'];
-    const players = club['B'].split(',').map(player => player.trim());
+    const players = club['B']?.split(',')?.map(player => player.trim()) || [];
     const j = club['C'];
     const g = club['D'];
-    const p = club['E'];
-    const e = club['F'];
+    const p = club['F'];
+    const e = club['E'];
     const gf = club['G'];
     const ge = club['H'];
 
@@ -25,7 +25,8 @@ export const clubsAdd = async (clubData, leagueIdentifier) => {
         p,
         e,
         gf,
-        ge
+        ge,
+        orderIndex: i,
       });
       console.log(`Equipo ${clubName} agregado o actualizado con éxito.`);
     } catch (error) {
@@ -57,6 +58,7 @@ export const clubsGet = async (club) => {
       gf: doc.data().gf,
       ge: doc.data().ge,
       dg: diferentGoals,
+      orderIndex: doc.data().orderIndex,
       pts: points,
     });
   });
