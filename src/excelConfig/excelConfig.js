@@ -1,5 +1,5 @@
 import * as XLSX from 'xlsx';
-import { clubsAdd } from '../firebase/clubsCrud';
+import { clubsAdd, uploadExcelDataToFirestore } from '../firebase/clubsCrud';
 
 export const handleFileChange = (e, leagueIdentifier) => {
     const reader = new FileReader();
@@ -26,5 +26,8 @@ export const handleFileChangeStats = (e, leagueIdentifier) => {
     console.log(`Torneo: ${leagueIdentifier}`, JSON.stringify(sheet, null, 2));
     const parsedData = XLSX.utils.sheet_to_json(sheet, { header: 'A' });
     console.log(parsedData, leagueIdentifier)
+    console.log('ayudaaaa')
+
+    uploadExcelDataToFirestore(parsedData, leagueIdentifier)
   }
 };

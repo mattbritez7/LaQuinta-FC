@@ -66,3 +66,41 @@ export const clubsGet = async (club) => {
   console.log(readDatesClub + 'que es esto');
   return readDatesClub;
 };
+
+
+export const uploadExcelDataToFirestore = async (excelData, leagueIdentifier) => {
+  const batch = [];
+  let currentTable;
+
+  for (const row of excelData) {
+    const cellValue = row['A'];
+
+    if (cellValue && cellValue.startsWith('TABLA')) {
+      // Si la celda comienza con 'TABLA', es el comienzo de una nueva tabla
+      currentTable = `${leagueIdentifier}_${cellValue}`;
+    } else if (currentTable) {
+      // Si estamos procesando una tabla, almacenamos los datos en Firestore
+      const docData = {};
+
+      // Iterar sobre las columnas de la tabla actual (columnas E en adelante)
+      for (const [columnName, columnValue] of Object.entries(row)) {
+        if (columnName >= 'E') {
+          docData[columnName] = columnValue;
+        }
+      }
+
+      // Almacenar el documento en la colección correspondiente a la tabla actual
+      const docRef = doc(db, currentTable, row['A']);  // Asignar un ID al documento
+
+      batch.push(setDoc(docRef, docData));
+    }
+  }
+
+  // Ejecutar la transacción por lotes
+  try {
+    await Promise.all(batch);
+    console.log('Datos cargados exitosamente en Firestore.');
+  } catch (error) {
+    console.error('Error al cargar datos en Firestore:', error);
+  }
+};
