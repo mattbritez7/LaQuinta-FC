@@ -27,7 +27,7 @@ function TableInformative({ selectedLeague }) {
       const lastDate = await readDates(`${selectedLeague}_lastDate`, 'ULTIMA FECHA');
       setLastDateTableData(lastDate);
 
-      const nextDate = await readDates(`${selectedLeague}_nextDate`, 'SIGUIENTE FECHA');
+      const nextDate = await readDates(`${selectedLeague}_nextdate`, 'SIGUIENTE FECHA');
       setNextDateTableData(nextDate);
 
       const sanctioned = await readDates(`${selectedLeague}_sanctioned`, 'SANCIONADOS');
