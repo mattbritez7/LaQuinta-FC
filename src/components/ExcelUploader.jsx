@@ -3,7 +3,7 @@ import { handleFileChange } from '../excelConfig/excelConfig';
 const ExcelUploaderLeague = ({ leagueIdentifier }) => {
   const handleChange = (e) => {
     handleFileChange(e, leagueIdentifier);
-    console.log(leagueIdentifier)
+    (leagueIdentifier)
   };
 
   return (

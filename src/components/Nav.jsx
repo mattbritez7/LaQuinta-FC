@@ -44,9 +44,7 @@ export default function Simple() {
   const location = useLocation();
 
   const LinksHome = [
-    { text: 'Torneos', url: '/#/stats' },
-    { text: 'Nosotros', url: '/#/#AboutUs' },
-    { text: 'Contactanos', url: '/#/#Contactus' },
+    { text: 'Torneos', url: '/#/stats' }
   ];
 
   const LinksStats = [

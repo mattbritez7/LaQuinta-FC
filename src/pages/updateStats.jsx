@@ -12,6 +12,7 @@ const UpdateStats = () => {
       <ExcelUploader leagueIdentifier="clubs3"/>
       <h1>ACTUALIZAR STATS 1</h1>
       <ExcelUploaderStats />
+
     </div>
   );
 };

@@ -2,7 +2,7 @@ import { doc, setDoc, getDocs, collection } from 'firebase/firestore';
 import { db } from './firebase';
 
 export const clubsAdd = async (clubData, leagueIdentifier) => { 
-  console.log(leagueIdentifier)
+  (leagueIdentifier)
   for (let i = 2; i < clubData.length; i++) {
     const club = clubData[i];
     const clubName = club['A'];
@@ -28,7 +28,7 @@ export const clubsAdd = async (clubData, leagueIdentifier) => {
         ge,
         orderIndex: i,
       });
-      console.log(`Equipo ${clubName} agregado o actualizado con éxito.`);
+      (`Equipo ${clubName} agregado o actualizado con éxito.`);
     } catch (error) {
       console.error(`Error al agregar equipo:`, error);
     }
@@ -40,7 +40,7 @@ export const clubsGet = async (club) => {
   const readDatesClub = [];
 
   querySnapshot.forEach((doc) => {
-    console.log(doc.data());
+    (doc.data());
     const points = doc.data().g * 3 + doc.data().e * 1;
     const diferentGoals = doc.data().gf - doc.data().ge;
 
@@ -63,34 +63,29 @@ export const clubsGet = async (club) => {
     });
   });
 
-  console.log(readDatesClub + 'que es esto');
+  (readDatesClub + 'que es esto');
   return readDatesClub;
 };
 
-
-export const uploadExcelDataToFirestore = async (excelData, leagueIdentifier) => {
+export const uploadExcelDataToFirestoreScorers = async (excelData, leagueIdentifier) => {
   const batch = [];
-  let currentTable;
 
-  for (const row of excelData) {
-    const cellValue = row['A'];
+  for (let i = 2; i < excelData.length; i++) {
+    const row = excelData[i];
+    const player = row['A'];
+    const club= row['B'];
+    const count = row['C'];
 
-    if (cellValue && cellValue.startsWith('TABLA')) {
-      // Si la celda comienza con 'TABLA', es el comienzo de una nueva tabla
-      currentTable = `${leagueIdentifier}_${cellValue}`;
-    } else if (currentTable) {
-      // Si estamos procesando una tabla, almacenamos los datos en Firestore
-      const docData = {};
-
-      // Iterar sobre las columnas de la tabla actual (columnas E en adelante)
-      for (const [columnName, columnValue] of Object.entries(row)) {
-        if (columnName >= 'E') {
-          docData[columnName] = columnValue;
-        }
-      }
+    if (player && club && count) {
+      // Si tenemos valores en playerName, clubName y goals, almacenamos los datos en Firestore
+      const docData = {
+        player,
+        club,
+        count,
+      };
 
       // Almacenar el documento en la colección correspondiente a la tabla actual
-      const docRef = doc(db, currentTable, row['A']);  // Asignar un ID al documento
+      const docRef = doc(db, 'clubs1_scorers', player);  // Asignar un ID al documento
 
       batch.push(setDoc(docRef, docData));
     }
@@ -99,8 +94,175 @@ export const uploadExcelDataToFirestore = async (excelData, leagueIdentifier) =>
   // Ejecutar la transacción por lotes
   try {
     await Promise.all(batch);
-    console.log('Datos cargados exitosamente en Firestore.');
+    ('Datos de jugadores cargados exitosamente en Firestore.');
   } catch (error) {
-    console.error('Error al cargar datos en Firestore:', error);
+    console.error('Error al cargar datos de jugadores en Firestore:', error);
+  }
+};
+
+export const uploadExcelDataToFirestoreSanctioned = async (excelData, leagueIdentifier) => {
+  const batch = [];
+
+  for (let i = 3; i < excelData.length; i++) {
+    const row = excelData[i];
+    const club= row['E'];
+    const player = row['F'];
+    const reason = row['G'];
+
+    if (player && club && reason) {
+      // Si tenemos valores en playerName, clubName y goals, almacenamos los datos en Firestore
+      const docData = {
+        player,
+        club,
+        reason,
+      };
+
+      // Almacenar el documento en la colección correspondiente a la tabla actual
+      const docRef = doc(db, 'clubs1_sanctioned', player);  // Asignar un ID al documento
+
+      batch.push(setDoc(docRef, docData));
+    }
+  }
+
+  // Ejecutar la transacción por lotes
+  try {
+    await Promise.all(batch);
+    ('Datos de jugadores cargados exitosamente en Firestore.');
+  } catch (error) {
+    console.error('Error al cargar datos de jugadores en Firestore:', error);
+  }
+};
+
+export const uploadExcelDataToFirestoreLastDate = async (excelData, leagueIdentifier) => {
+  const batch = [];
+
+  for (let i = 2; i < excelData.length; i++) {
+    const row = excelData[i];
+    const club1= row['I'];
+    const club2= row['J'];
+    const date = row['K'];
+    const result = row['L'];
+
+    if (club1 && club2 && result && date) {
+      // Si tenemos valores en playerName, clubName y goals, almacenamos los datos en Firestore
+      const docData = {
+        club1,
+        club2,
+        result,
+        date
+      };
+
+      // Almacenar el documento en la colección correspondiente a la tabla actual
+      const docRef = doc(db, 'clubs1_lastDate', club1);  // Asignar un ID al documento
+
+      batch.push(setDoc(docRef, docData));
+    }
+  }
+
+  // Ejecutar la transacción por lotes
+  try {
+    await Promise.all(batch);
+    ('Datos de jugadores cargados exitosamente en Firestore.');
+  } catch (error) {
+    console.error('Error al cargar datos d4e jugadores en Firestore:', error);
+  }
+};
+
+export const uploadExcelDataToFirestoreBanned = async (excelData, leagueIdentifier) => {
+  const batch = [];
+
+  for (let i = 2; i < excelData.length; i++) {
+    const row = excelData[i];
+    const club= row['T'];
+    const player = row['U'];
+    const reason = row['V'];
+
+    if (club && player && reason) {
+      // Si tenemos valores en playerName, clubName y goals, almacenamos los datos en Firestore
+      const docData = {
+        club,
+        player,
+        reason
+      };
+
+      // Almacenar el documento en la colección correspondiente a la tabla actual
+      const docRef = doc(db, 'clubs1_banned', club);  // Asignar un ID al documento
+
+      batch.push(setDoc(docRef, docData));
+    }
+  }
+
+  // Ejecutar la transacción por lotes
+  try {
+    await Promise.all(batch);
+    ('Datos de jugadores cargados exitosamente en Firestore.');
+  } catch (error) {
+    console.error('Error al cargar datos d4e jugadores en Firestore:', error);
+  }
+};
+
+export const uploadExcelDataToFirestoreAssist = async (excelData, leagueIdentifier) => {
+  const batch = [];
+
+  for (let i = 2; i < excelData.length; i++) {
+    const row = excelData[i];
+    const club= row['P'];
+    const count = row['Q'];
+    const player = row['R'];
+
+    if (club && player && count) {
+      // Si tenemos valores en playerName, clubName y goals, almacenamos los datos en Firestore
+      const docData = {
+        club,
+        player,
+        count
+      };
+
+      // Almacenar el documento en la colección correspondiente a la tabla actual
+      const docRef = doc(db, 'clubs1_assist', club);  // Asignar un ID al documento
+
+      batch.push(setDoc(docRef, docData));
+    }
+  }
+
+  // Ejecutar la transacción por lotes
+  try {
+    await Promise.all(batch);
+    ('Datos de jugadores cargados exitosamente en Firestore.');
+  } catch (error) {
+    console.error('Error al cargar datos d4e jugadores en Firestore:', error);
+  }
+};
+
+export const uploadExcelDataToFirestoreNextDate = async (excelData, leagueIdentifier) => {
+  const batch = [];
+
+  for (let i = 2; i < excelData.length; i++) {
+    const row = excelData[i];
+    const club1= row['X'];
+    const club2= row['Y'];
+    const date = row['Z'];
+
+    if (club1 && club2 && date) {
+      // Si tenemos valores en playerName, clubName y goals, almacenamos los datos en Firestore
+      const docData = {
+        club1,
+        club2,
+        date
+      };
+
+      // Almacenar el documento en la colección correspondiente a la tabla actual
+      const docRef = doc(db, 'clubs1_nextDate', club1);  // Asignar un ID al documento
+
+      batch.push(setDoc(docRef, docData));
+    }
+  }
+
+  // Ejecutar la transacción por lotes
+  try {
+    await Promise.all(batch);
+    ('Datos de jugadores cargados exitosamente en Firestore.');
+  } catch (error) {
+    console.error('Error al cargar datos d4e jugadores en Firestore:', error);
   }
 };

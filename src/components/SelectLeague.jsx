@@ -5,7 +5,7 @@ const SelectLeague = ({selectedLeague, setSelectedLeague}) => {
   
   const handleSelectChange = (event) => {
     setSelectedLeague(event.target.value);
-    console.log(event.target.value);
+    (event.target.value);
   };
 
   return (

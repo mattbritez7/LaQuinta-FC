@@ -7,7 +7,7 @@ import SoccerField from '../assets/soccerField.jpg';
 
 function TableInformative({ selectedLeague }) {
 
-  const [lessDefeatedFencesTableData, setLessDefeatedFencesTableData] = useState([]);
+  const [assistTableData, setAssistTableData] = useState([]);
   const [scorersTableData, setScorersTableData] = useState([]);
   const [lastDateTableData, setLastDateTableData] = useState([]);
   const [nextDateTableData, setNextDateTableData] = useState([]);
@@ -18,8 +18,8 @@ function TableInformative({ selectedLeague }) {
 
     const fetchData = async () => {
 
-      const lessDefeatedFences = await readDates(`${selectedLeague}_lessDefeatedFences`, 'VALLAS MENOS VENCIDAS');
-      setLessDefeatedFencesTableData(lessDefeatedFences);
+      const assist = await readDates(`${selectedLeague}_assist`, 'MAXIMO ASISTIDOR');
+      setAssistTableData(assist);
 
       const banned = await readDates(`${selectedLeague}_banned`, 'VETADOS');
       setBannedTableData(banned);
@@ -27,7 +27,7 @@ function TableInformative({ selectedLeague }) {
       const lastDate = await readDates(`${selectedLeague}_lastDate`, 'ULTIMA FECHA');
       setLastDateTableData(lastDate);
 
-      const nextDate = await readDates(`${selectedLeague}_nextdate`, 'SIGUIENTE FECHA');
+      const nextDate = await readDates(`${selectedLeague}_nextDate`, 'SIGUIENTE FECHA');
       setNextDateTableData(nextDate);
 
       const sanctioned = await readDates(`${selectedLeague}_sanctioned`, 'SANCIONADOS');
@@ -62,7 +62,7 @@ function TableInformative({ selectedLeague }) {
         backgroundAttachment="fixed"
         maxW="100%"
       >
-      <DinamicTable tableData={lessDefeatedFencesTableData}/>
+      <DinamicTable tableData={assistTableData}/>
       <DinamicTable tableData={scorersTableData}/>
       <DinamicTable tableData={bannedTableData} boolean={true}/>
       <DinamicTable tableData={sanctionedTableData} boolean={true}/>

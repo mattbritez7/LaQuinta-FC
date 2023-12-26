@@ -1,5 +1,5 @@
 import * as XLSX from 'xlsx';
-import { clubsAdd, uploadExcelDataToFirestore } from '../firebase/clubsCrud';
+import { clubsAdd, uploadExcelDataToFirestoreScorers, uploadExcelDataToFirestoreSanctioned, uploadExcelDataToFirestoreLastDate, uploadExcelDataToFirestoreBanned, uploadExcelDataToFirestoreAssist, uploadExcelDataToFirestoreNextDate} from '../firebase/clubsCrud';
 
 export const handleFileChange = (e, leagueIdentifier) => {
     const reader = new FileReader();
@@ -9,7 +9,7 @@ export const handleFileChange = (e, leagueIdentifier) => {
       const workbook = XLSX.read(data, { type: 'binary'});
       const sheetName = workbook.SheetNames[0];
       const sheet = workbook.Sheets[sheetName];
-      console.log(`Torneo: ${leagueIdentifier}`, JSON.stringify(sheet, null, 2));
+      (`Torneo: ${leagueIdentifier}`, JSON.stringify(sheet, null, 2));
       const parsedData = XLSX.utils.sheet_to_json(sheet, { header: 'A' });
       clubsAdd(parsedData, leagueIdentifier);
     }
@@ -23,11 +23,14 @@ export const handleFileChangeStats = (e, leagueIdentifier) => {
     const workbook = XLSX.read(data, { type: 'binary'});
     const sheetName = workbook.SheetNames[0];
     const sheet = workbook.Sheets[sheetName];
-    console.log(`Torneo: ${leagueIdentifier}`, JSON.stringify(sheet, null, 2));
-    const parsedData = XLSX.utils.sheet_to_json(sheet, { header: 'A' });
-    console.log(parsedData, leagueIdentifier)
-    console.log('ayudaaaa')
+    (`Torneo: ${leagueIdentifier}`, JSON.stringify(sheet, null, 2));
+    const parsedData = XLSX.utils.sheet_to_json(sheet, { header: 'A' })
 
-    uploadExcelDataToFirestore(parsedData, leagueIdentifier)
+    uploadExcelDataToFirestoreScorers(parsedData, leagueIdentifier);
+    uploadExcelDataToFirestoreSanctioned(parsedData, leagueIdentifier);
+    uploadExcelDataToFirestoreLastDate(parsedData, leagueIdentifier);
+    uploadExcelDataToFirestoreNextDate(parsedData, leagueIdentifier);
+    uploadExcelDataToFirestoreBanned(parsedData, leagueIdentifier);
+    uploadExcelDataToFirestoreAssist(parsedData, leagueIdentifier);
   }
 };

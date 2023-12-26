@@ -26,7 +26,7 @@ export default function DinamicTable({tableData, boolean}) {
                             boolean ? 
                             <Th fontSize={{base: '16px', md: "18px" }}><b>Razon</b></Th>
                             :
-                            <Th fontSize={{base: '16px', md: "18px" }}><b>Goles</b></Th>
+                            <Th fontSize={{base: '16px', md: "18px" }}><b>Cantidad</b></Th>
                         }
                     </Tr>
                     </Thead>
@@ -39,7 +39,7 @@ export default function DinamicTable({tableData, boolean}) {
                                 boolean ? 
                                 <Td>{data.reason}</Td>
                                 : 
-                                <Td>{data.goals}</Td>
+                                <Td>{data.count}</Td>
                             }
                         </Tr>
                     </Tbody>
