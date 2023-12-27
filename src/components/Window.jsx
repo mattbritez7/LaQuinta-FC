@@ -3,6 +3,9 @@ import CampoDeFutbol from '../assets/Campodefutbol.jpg';
 import CampoDeFutbol2 from '../assets/Campodefutbol2.jpg';
 import CampoDeFutbol3 from '../assets/Campodefutbol3.jpg';
 import CampoDeFutbol4 from '../assets/Campodefutbol4.jpeg';
+import CampoDeFutbol5 from '../assets/1.png';
+import CampoDeFutbol6 from '../assets/vosabe.png';
+
 
 function Window() { 
     const cards = [
@@ -30,6 +33,18 @@ function Window() {
           text: '‍Zlatan Ibrahimovic',
           image:
           CampoDeFutbol4,
+        },
+        {
+          title: '',
+          text: '',
+          image:
+          CampoDeFutbol5,
+        },
+        {
+          title: '',
+          text: '',
+          image:
+          CampoDeFutbol6,
         },
       ]
       const size = [
