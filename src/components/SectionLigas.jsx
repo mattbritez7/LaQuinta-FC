@@ -3,6 +3,7 @@ import {Box, Text, Flex, Spacer, Button, Link} from '@chakra-ui/react';
 import imagesectionligas from "../assets/imagesectionligas.jpg";
 import imagesectionligas1 from "../assets/imagesectionligas1.jpg";
 import imagesectionligas2 from "../assets/imagesectionligas2.jpg";
+import referis from "../assets/referis.jpeg";
 import f11LIGA from "../assets/F11LIGA.jpg";
 import { useState } from "react";
 
@@ -114,11 +115,31 @@ function SectionLigas() {
                 })
     }
 
+    function amateursReferis () {
+        setLeague({
+            title: 'Capacitación de arbitros amateurs',
+            descripcion: { 
+            desc1: 'Clases con instructor', 
+            desc2: 'Todos los Sábados', 
+            desc3: 'De 10am a 12am', 
+            desc4: 'Mas info - Jair Medina', 
+            desc5: '📲  1136122715', 
+            },
+            cards: [{
+                    title: '', 
+                    text: '',
+                    image:
+                    referis, 
+            },]
+        })
+    }
+
     return ( 
         <>
         <Box bg="white" px={6} height={"20vh"} pt={"10px"}>
-        <Text fontSize={"45px"} color="#404047" textAlign={"center"} mt={"3%"}>LIGAS</Text>
+        <Text fontSize={"45px"} color="#404047" textAlign={"center"} mt={"3%"}>LIGAS Y EVENTOS</Text>
             <Flex justify={'center'}>
+                <Button onClick={amateursReferis} variant="outline" mr="10px">Capacitación de arbitros amateurs</Button>
                 <Button onClick={leagueAGC} variant="outline" mr="10px">AGC</Button>
                 <Link href="https://www.instagram.com/f11lareserva?igsh=enh0dms3NzRoOGt3" target="_blank" _hover={{ textDecoration: 'none' }}>
                     <Button onClick={leagueF11} variant="outline" mr="10px">F11</Button>
