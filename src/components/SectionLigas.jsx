@@ -1,11 +1,8 @@
 import CaptionCarousel from "./Carrousel";
-import {Box, Text, Flex, Spacer, Button} from '@chakra-ui/react';
+import {Box, Text, Flex, Spacer, Button, Link} from '@chakra-ui/react';
 import imagesectionligas from "../assets/imagesectionligas.jpg";
 import imagesectionligas1 from "../assets/imagesectionligas1.jpg";
 import imagesectionligas2 from "../assets/imagesectionligas2.jpg";
-import lafabupc1 from "../assets/lafabupc1.jpg";
-import lafabupc2 from "../assets/lafabupc2.jpg";
-import lafabupc3 from "../assets/lafabupc3.jpg";
 import f11LIGA from "../assets/F11LIGA.jpg";
 import { useState } from "react";
 
@@ -25,8 +22,9 @@ function SectionLigas() {
      },
     ]
 
-    const [liga, setLiga] = useState({
+    const [league, setLeague] = useState({
         title: 'ACG Liga | Temporada 2022',
+        link: '',
         descripcion: { 
           desc1: 'INSCRIPCION ABIERTA!! TORNEO EDAD LIBRE!!', 
           desc2: '⚽️☑️TORNEO SENIOR +35', 
@@ -54,9 +52,10 @@ function SectionLigas() {
                 }]
             })
 
-    function changeLigaAGC () {
-        setLiga({
+    function leagueAGC () {
+        setLeague({
             title: 'ACG Liga | Temporada 2022',
+            link: '',
             descripcion: { 
               desc1: 'INSCRIPCION ABIERTA!! TORNEO EDAD LIBRE!!', 
               desc2: '⚽️☑️TORNEO SENIOR +35', 
@@ -85,9 +84,10 @@ function SectionLigas() {
                 })
     }
     
-    function changeLigaF11 () {
-        setLiga({
+    function leagueF11 () {
+        setLeague({
             title: 'F11 La Reserva Apertura 2022',
+            link: '',
             descripcion: { 
             desc1: 'Torneo de Fútbol 11🏆', 
             desc2: 'Actualmente 26 equipos ⚽', 
@@ -121,15 +121,17 @@ function SectionLigas() {
         <Box bg="white" px={6} height={"20vh"} pt={"10px"}>
         <Text fontSize={"45px"} color="#404047" textAlign={"center"} mt={"3%"}>LIGAS</Text>
             <Flex justify={'center'}>
-                <Button onClick={changeLigaAGC} variant="outline" mr="10px">AGC</Button>
-                <Button onClick={changeLigaF11} variant="outline" mr="10px">F11</Button>
+                <Button onClick={leagueAGC} variant="outline" mr="10px">AGC</Button>
+                <Link href="/ruta-a-agc" target="_blank" _hover={{ textDecoration: 'none' }}>
+                    <Button onClick={leagueF11} variant="outline" mr="10px">F11</Button>
+                </Link>
             </Flex>
         </Box>
         <Box bg="white" px={6} height={"100%"} pt={{ base: 0, md: '20px' }} mt={{ base: 0, md: '1%' }}>
         <Flex flexDirection={{ base: "column", md: "row" }}>
         <Box width={{ base: "100%", md: "40vw" }} mt={{ base: '3%', md: 0 }}>
         <Box mb={{ base: '5vh', md: '10vh' }} mt={{ base: '5vh', md: '10vh' }}>
-                    <CaptionCarousel cards={liga.cards} size={size} borderRadius={borderRadius}/> 
+                    <CaptionCarousel cards={league.cards} size={size} borderRadius={borderRadius}/> 
                 </Box>
             </Box>
                 <Spacer />
@@ -142,21 +144,21 @@ function SectionLigas() {
                     textAlign={{ base: "center", md: "left" }}
                 >
                   <Text fontSize={"31px"} color="#404047" textAlign={"left"}>
-                  {liga.title}
+                  {league.title}
                     </Text>
                     <Text fontSize={"14px"} color="#6a859c" textAlign={"left"} mt={"15px"} mb={{ base: '5vh', md: 0 }}>
-                    {liga.descripcion.desc1}
+                    {league.descripcion.desc1}
                         <br/>
-                        {liga.descripcion.desc2}
-                        <br/>
-
-                        {liga.descripcion.desc3}
+                        {league.descripcion.desc2}
                         <br/>
 
-                        {liga.descripcion.desc4}
+                        {league.descripcion.desc3}
                         <br/>
 
-                        {liga.descripcion.desc5}
+                        {league.descripcion.desc4}
+                        <br/>
+
+                        {league.descripcion.desc5}
                     </Text>
                 </Box>
             </Flex>
