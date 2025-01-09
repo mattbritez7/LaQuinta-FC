@@ -14,7 +14,7 @@ import {
     MdEmail,
     MdLocationOn,
   } from 'react-icons/md';
-  import GoogleMap from './GoogleMap';
+  // import GoogleMap from './GoogleMap';
   import CampoDeFutbol from '../assets/Campodefutbol.jpg';
   
   export default function Contact() {
