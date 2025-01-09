@@ -55,7 +55,6 @@ function SectionLigas() {
     function leagueAGC () {
         setLeague({
             title: 'ACG Liga | Temporada 2022',
-            link: '',
             descripcion: { 
               desc1: 'INSCRIPCION ABIERTA!! TORNEO EDAD LIBRE!!', 
               desc2: '⚽️☑️TORNEO SENIOR +35', 
@@ -87,7 +86,6 @@ function SectionLigas() {
     function leagueF11 () {
         setLeague({
             title: 'F11 La Reserva Apertura 2022',
-            link: '',
             descripcion: { 
             desc1: 'Torneo de Fútbol 11🏆', 
             desc2: 'Actualmente 26 equipos ⚽', 
@@ -122,7 +120,7 @@ function SectionLigas() {
         <Text fontSize={"45px"} color="#404047" textAlign={"center"} mt={"3%"}>LIGAS</Text>
             <Flex justify={'center'}>
                 <Button onClick={leagueAGC} variant="outline" mr="10px">AGC</Button>
-                <Link href="/ruta-a-agc" target="_blank" _hover={{ textDecoration: 'none' }}>
+                <Link href="https://www.instagram.com/f11lareserva?igsh=enh0dms3NzRoOGt3" target="_blank" _hover={{ textDecoration: 'none' }}>
                     <Button onClick={leagueF11} variant="outline" mr="10px">F11</Button>
                 </Link>
             </Flex>
