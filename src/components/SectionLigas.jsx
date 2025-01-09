@@ -84,36 +84,7 @@ function SectionLigas() {
                     }]
                 })
     }
-    function changeLigaUPC () {
-        setLiga({
-            title: 'LAFAB UPC FUTBOL',
-            descripcion: { 
-            desc1: 'Campeones Nacionales Tacna 2018 🥇🏆FEDUP', 
-            desc2: 'ANOTATE!!', 
-            desc3: 'VENI A JUGAR AMISTOSOS DE VERANO, Y PARTICIPA DEL TORNEO LARGO.', 
-            desc4: '',
-            desc5: ''
-            },
-            cards: [{
-                    title: '', 
-                    text: '',
-                    image:
-                    lafabupc1, 
-                    },
-                    { 
-                    title: '', 
-                    text: '',
-                    image:
-                    lafabupc2, 
-                    },
-                    { 
-                    title: '', 
-                    text: '',
-                    image:
-                    lafabupc3, 
-                    }]
-                })
-    }
+    
     function changeLigaF11 () {
         setLiga({
             title: 'F11 La Reserva Apertura 2022',
@@ -151,7 +122,6 @@ function SectionLigas() {
         <Text fontSize={"45px"} color="#404047" textAlign={"center"} mt={"3%"}>LIGAS</Text>
             <Flex justify={'center'}>
                 <Button onClick={changeLigaAGC} variant="outline" mr="10px">AGC</Button>
-                <Button onClick={changeLigaUPC} variant="outline" mr="10px">UPC</Button>
                 <Button onClick={changeLigaF11} variant="outline" mr="10px">F11</Button>
             </Flex>
         </Box>
