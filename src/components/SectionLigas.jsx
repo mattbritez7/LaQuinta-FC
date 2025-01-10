@@ -56,6 +56,7 @@ function SectionLigas() {
     function leagueAGC () {
         setLeague({
             title: 'ACG Liga | Temporada 2022',
+            link: '',
             descripcion: { 
               desc1: 'INSCRIPCION ABIERTA!! TORNEO EDAD LIBRE!!', 
               desc2: '⚽️☑️TORNEO SENIOR +35', 
@@ -87,12 +88,13 @@ function SectionLigas() {
     function leagueF11 () {
         setLeague({
             title: 'F11 La Reserva Apertura 2022',
+            link: "https://www.instagram.com/f11lareserva?igsh=enh0dms3NzRoOGt3",
             descripcion: { 
             desc1: 'Torneo de Fútbol 11🏆', 
             desc2: 'Actualmente 26 equipos ⚽', 
             desc3: 'Nuevos desafios, se renueva la ilusión para todos.', 
             desc4: 'Éxitos y nuevamente gracias a cada equipo.',
-            desc5: ''
+            desc5: '',
             },
             cards: [{
                     title: '', 
@@ -118,6 +120,7 @@ function SectionLigas() {
     function amateursReferis () {
         setLeague({
             title: 'Capacitación de arbitros amateurs',
+            link: '',
             descripcion: { 
             desc1: 'Clases con instructor', 
             desc2: 'Todos los Sábados', 
@@ -141,9 +144,7 @@ function SectionLigas() {
             <Flex justify={'center'}>
                 <Button onClick={amateursReferis} variant="outline" mr="10px">Capacitación de arbitros amateurs</Button>
                 <Button onClick={leagueAGC} variant="outline" mr="10px">AGC</Button>
-                <Link href="https://www.instagram.com/f11lareserva?igsh=enh0dms3NzRoOGt3" target="_blank" _hover={{ textDecoration: 'none' }}>
-                    <Button onClick={leagueF11} variant="outline" mr="10px">F11</Button>
-                </Link>
+                <Button onClick={leagueF11} variant="outline" mr="10px">F11</Button>
             </Flex>
         </Box>
         <Box bg="white" px={6} height={"100%"} pt={{ base: 0, md: '20px' }} mt={{ base: 0, md: '1%' }}>
@@ -179,6 +180,17 @@ function SectionLigas() {
 
                         {league.descripcion.desc5}
                     </Text>
+                    
+                    {league.link ? (
+                        <>
+                        <br/>
+                        <Link href={league.link} target="_blank" _hover={{ textDecoration: 'none' }}>
+                            <Button variant="outline" mr="10px">Click para ir al instagram de F11 La Reserva</Button>
+                        </Link>
+                        </>
+                    ) : (
+                        <p></p>
+                    )}
                 </Box>
             </Flex>
         </Box>

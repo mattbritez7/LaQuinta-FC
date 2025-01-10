@@ -39,6 +39,8 @@ export default function CaptionCarousel({ cards, size, borderRadius }) {
     }
   }, [slider]);
 
+  console.log(cards)
+
   return (
     <Box
       position={'relative'}
