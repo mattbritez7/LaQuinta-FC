@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 // import App from './App.jsx';
 import './styles.css';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
-import Stats from './pages/stats';
+import Stats from './pages/Stats';
 import Index from './pages/index';
 import Login from './pages/login';
 import UpdateStats from './pages/updateStats';

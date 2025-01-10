@@ -1,11 +1,9 @@
 import CaptionCarousel from "./Carrousel";
-import {Box, Text, Flex, Spacer, Button} from '@chakra-ui/react';
+import {Box, Text, Flex, Spacer, Button, Link} from '@chakra-ui/react';
 import imagesectionligas from "../assets/imagesectionligas.jpg";
 import imagesectionligas1 from "../assets/imagesectionligas1.jpg";
 import imagesectionligas2 from "../assets/imagesectionligas2.jpg";
-import lafabupc1 from "../assets/lafabupc1.jpg";
-import lafabupc2 from "../assets/lafabupc2.jpg";
-import lafabupc3 from "../assets/lafabupc3.jpg";
+import referis from "../assets/referis.jpeg";
 import f11LIGA from "../assets/F11LIGA.jpg";
 import { useState } from "react";
 
@@ -25,8 +23,9 @@ function SectionLigas() {
      },
     ]
 
-    const [liga, setLiga] = useState({
+    const [league, setLeague] = useState({
         title: 'ACG Liga | Temporada 2022',
+        link: '',
         descripcion: { 
           desc1: 'INSCRIPCION ABIERTA!! TORNEO EDAD LIBRE!!', 
           desc2: '⚽️☑️TORNEO SENIOR +35', 
@@ -54,9 +53,10 @@ function SectionLigas() {
                 }]
             })
 
-    function changeLigaAGC () {
-        setLiga({
+    function leagueAGC () {
+        setLeague({
             title: 'ACG Liga | Temporada 2022',
+            link: '',
             descripcion: { 
               desc1: 'INSCRIPCION ABIERTA!! TORNEO EDAD LIBRE!!', 
               desc2: '⚽️☑️TORNEO SENIOR +35', 
@@ -84,45 +84,17 @@ function SectionLigas() {
                     }]
                 })
     }
-    function changeLigaUPC () {
-        setLiga({
-            title: 'LAFAB UPC FUTBOL',
-            descripcion: { 
-            desc1: 'Campeones Nacionales Tacna 2018 🥇🏆FEDUP', 
-            desc2: 'ANOTATE!!', 
-            desc3: 'VENI A JUGAR AMISTOSOS DE VERANO, Y PARTICIPA DEL TORNEO LARGO.', 
-            desc4: '',
-            desc5: ''
-            },
-            cards: [{
-                    title: '', 
-                    text: '',
-                    image:
-                    lafabupc1, 
-                    },
-                    { 
-                    title: '', 
-                    text: '',
-                    image:
-                    lafabupc2, 
-                    },
-                    { 
-                    title: '', 
-                    text: '',
-                    image:
-                    lafabupc3, 
-                    }]
-                })
-    }
-    function changeLigaF11 () {
-        setLiga({
+    
+    function leagueF11 () {
+        setLeague({
             title: 'F11 La Reserva Apertura 2022',
+            link: "https://www.instagram.com/f11lareserva?igsh=enh0dms3NzRoOGt3",
             descripcion: { 
             desc1: 'Torneo de Fútbol 11🏆', 
             desc2: 'Actualmente 26 equipos ⚽', 
             desc3: 'Nuevos desafios, se renueva la ilusión para todos.', 
             desc4: 'Éxitos y nuevamente gracias a cada equipo.',
-            desc5: ''
+            desc5: '',
             },
             cards: [{
                     title: '', 
@@ -145,21 +117,41 @@ function SectionLigas() {
                 })
     }
 
+    function amateursReferis () {
+        setLeague({
+            title: 'Capacitación de arbitros amateurs',
+            link: '',
+            descripcion: { 
+            desc1: 'Clases con instructor', 
+            desc2: 'Todos los Sábados', 
+            desc3: 'De 10am a 12am', 
+            desc4: 'Mas info - Jair Medina', 
+            desc5: '📲  1136122715', 
+            },
+            cards: [{
+                    title: '', 
+                    text: '',
+                    image:
+                    referis, 
+            },]
+        })
+    }
+
     return ( 
         <>
         <Box bg="white" px={6} height={"20vh"} pt={"10px"}>
-        <Text fontSize={"45px"} color="#404047" textAlign={"center"} mt={"3%"}>LIGAS</Text>
+        <Text fontSize={"45px"} color="#404047" textAlign={"center"} mt={"3%"}>LIGAS Y EVENTOS</Text>
             <Flex justify={'center'}>
-                <Button onClick={changeLigaAGC} variant="outline" mr="10px">AGC</Button>
-                <Button onClick={changeLigaUPC} variant="outline" mr="10px">UPC</Button>
-                <Button onClick={changeLigaF11} variant="outline" mr="10px">F11</Button>
+                <Button onClick={amateursReferis} variant="outline" mr="10px">Capacitación de arbitros amateurs</Button>
+                <Button onClick={leagueAGC} variant="outline" mr="10px">AGC</Button>
+                <Button onClick={leagueF11} variant="outline" mr="10px">F11</Button>
             </Flex>
         </Box>
         <Box bg="white" px={6} height={"100%"} pt={{ base: 0, md: '20px' }} mt={{ base: 0, md: '1%' }}>
         <Flex flexDirection={{ base: "column", md: "row" }}>
         <Box width={{ base: "100%", md: "40vw" }} mt={{ base: '3%', md: 0 }}>
         <Box mb={{ base: '5vh', md: '10vh' }} mt={{ base: '5vh', md: '10vh' }}>
-                    <CaptionCarousel cards={liga.cards} size={size} borderRadius={borderRadius}/> 
+                    <CaptionCarousel cards={league.cards} size={size} borderRadius={borderRadius}/> 
                 </Box>
             </Box>
                 <Spacer />
@@ -172,22 +164,33 @@ function SectionLigas() {
                     textAlign={{ base: "center", md: "left" }}
                 >
                   <Text fontSize={"31px"} color="#404047" textAlign={"left"}>
-                  {liga.title}
+                  {league.title}
                     </Text>
                     <Text fontSize={"14px"} color="#6a859c" textAlign={"left"} mt={"15px"} mb={{ base: '5vh', md: 0 }}>
-                    {liga.descripcion.desc1}
+                    {league.descripcion.desc1}
                         <br/>
-                        {liga.descripcion.desc2}
-                        <br/>
-
-                        {liga.descripcion.desc3}
+                        {league.descripcion.desc2}
                         <br/>
 
-                        {liga.descripcion.desc4}
+                        {league.descripcion.desc3}
                         <br/>
 
-                        {liga.descripcion.desc5}
+                        {league.descripcion.desc4}
+                        <br/>
+
+                        {league.descripcion.desc5}
                     </Text>
+                    
+                    {league.link ? (
+                        <>
+                        <br/>
+                        <Link href={league.link} target="_blank" _hover={{ textDecoration: 'none' }}>
+                            <Button variant="outline" mr="10px">Click para ir al instagram de F11 La Reserva</Button>
+                        </Link>
+                        </>
+                    ) : (
+                        <p></p>
+                    )}
                 </Box>
             </Flex>
         </Box>
