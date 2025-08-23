@@ -24,7 +24,7 @@ function SectionLigas() {
     ]
 
     const [league, setLeague] = useState({
-        title: 'ACG Liga | Temporada 2022',
+        title: 'ACG Liga | Temporada 2025',
         link: '',
         descripcion: { 
           desc1: 'INSCRIPCION ABIERTA!! TORNEO EDAD LIBRE!!', 
@@ -55,7 +55,7 @@ function SectionLigas() {
 
     function leagueAGC () {
         setLeague({
-            title: 'ACG Liga | Temporada 2022',
+            title: 'ACG Liga | Temporada 2025',
             link: '',
             descripcion: { 
               desc1: 'INSCRIPCION ABIERTA!! TORNEO EDAD LIBRE!!', 
@@ -87,7 +87,7 @@ function SectionLigas() {
     
     function leagueF11 () {
         setLeague({
-            title: 'F11 La Reserva Apertura 2022',
+            title: 'F11 La Reserva Apertura 2025',
             link: "https://www.instagram.com/f11lareserva?igsh=enh0dms3NzRoOGt3",
             descripcion: { 
             desc1: 'Torneo de Fútbol 11🏆', 
