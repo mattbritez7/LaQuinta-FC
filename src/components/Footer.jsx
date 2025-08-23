@@ -30,16 +30,16 @@ const Footer = () => {
             <Text fontSize='18px'>
              PARTNERS
             </Text>
-            <Box as="a" href={'https://www.gyotechnologies.com'} target="_blank">
+            <Box as="a" href={'https://www.gyotechnologies.com.ar'} target="_blank">
                 <Text fontSize='14px' color="#668cad">
                     Web Design by:<br/>
                     GYO Technologies.
                 </Text>
             </Box>
             <hr/>
-            <Box as="a" href={'https://www.gyotechnologies.com'} target="_blank">
+            <Box as="a" href={'https://www.gyotechnologies.com.ar'} target="_blank">
                 <Text fontSize='14px' color="#668cad">
-                    www.gyotechnologies.com
+                    www.gyotechnologies.com.ar
                 </Text>
             </Box>
             <hr/>
