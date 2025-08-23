@@ -78,9 +78,9 @@ LaQuinta-FC/
    
    > **Nota**: Se utiliza `--legacy-peer-deps` debido a conflictos de dependencias con `simple-react-google-maps` que requiere una versión anterior de React.
 
-3. **Configurar variables de entorno**
+3. **Configurar variables de entorno (Opcional)**
    
-   Crear un archivo `.env` en la raíz del proyecto con las siguientes variables:
+   Para funcionalidades completas de Firebase, crear un archivo `.env` en la raíz del proyecto:
    ```env
    VITE_API_KEY_FIREBASE=tu_api_key
    VITE_AUTH_DOMAIN=tu_auth_domain
@@ -90,6 +90,8 @@ LaQuinta-FC/
    VITE_APP_ID=tu_app_id
    VITE_MEASUREMENTID=tu_measurement_id
    ```
+   
+   > **Nota**: Si no configuras las variables de Firebase, la aplicación funcionará en modo demo sin funcionalidades de base de datos.
 
 4. **Ejecutar en modo desarrollo**
    ```bash
@@ -152,6 +154,13 @@ Firebase Firestore se utiliza para almacenar:
 El sitio está desplegado en GitHub Pages y es accesible en:
 **https://www.laquintafc.com.ar**
 
+### Configuración para GitHub Pages
+
+El proyecto está configurado para funcionar correctamente en GitHub Pages con:
+- **Base URL**: `/LaQuinta-FC/` (configurado en `vite.config.js`)
+- **Hash Router**: Para evitar problemas de rutas en GitHub Pages
+- **Manejo de errores**: Firebase configurado para funcionar sin variables de entorno
+
 ### Proceso de Deployment
 
 1. Construir la aplicación:
@@ -163,6 +172,13 @@ El sitio está desplegado en GitHub Pages y es accesible en:
    ```bash
    npm run deploy
    ```
+
+### Variables de Entorno en Producción
+
+Para configurar Firebase en producción, agrega las variables de entorno en GitHub:
+1. Ve a tu repositorio en GitHub
+2. Settings → Secrets and variables → Actions
+3. Agrega las variables de entorno con el prefijo `VITE_`
 
 ## 🤝 Contribución
 

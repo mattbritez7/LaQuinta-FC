@@ -36,35 +36,41 @@ export const clubsAdd = async (clubData, leagueIdentifier) => {
 };
 
 export const clubsGet = async (club) => {
-  const querySnapshot = await getDocs(collection(db, club));
-  const readDatesClub = [];
+  try {
+    const querySnapshot = await getDocs(collection(db, club));
+    const readDatesClub = [];
 
-  querySnapshot.forEach((doc) => {
-    (doc.data());
-    const points = doc.data().g * 3 + doc.data().e * 1;
-    const diferentGoals = doc.data().gf - doc.data().ge;
+    querySnapshot.forEach((doc) => {
+      (doc.data());
+      const points = doc.data().g * 3 + doc.data().e * 1;
+      const diferentGoals = doc.data().gf - doc.data().ge;
 
-    // Construir dinámicamente el nombre de la tabla
-    const tableName = `CATEGORÍA ${club.toUpperCase()}`;
+      // Construir dinámicamente el nombre de la tabla
+      const tableName = `CATEGORÍA ${club.toUpperCase()}`;
 
-    readDatesClub.push({
-      tableName,
-      clubName: doc.data().clubName,
-      players: doc.data().players,
-      j: doc.data().j,
-      g: doc.data().g,
-      p: doc.data().p,
-      e: doc.data().e,
-      gf: doc.data().gf,
-      ge: doc.data().ge,
-      dg: diferentGoals,
-      orderIndex: doc.data().orderIndex,
-      pts: points,
+      readDatesClub.push({
+        tableName,
+        clubName: doc.data().clubName,
+        players: doc.data().players,
+        j: doc.data().j,
+        g: doc.data().g,
+        p: doc.data().p,
+        e: doc.data().e,
+        gf: doc.data().gf,
+        ge: doc.data().ge,
+        dg: diferentGoals,
+        orderIndex: doc.data().orderIndex,
+        pts: points,
+      });
     });
-  });
 
-  (readDatesClub + 'que es esto');
-  return readDatesClub;
+    (readDatesClub + 'que es esto');
+    return readDatesClub;
+  } catch (error) {
+    console.warn('Error fetching clubs data:', error);
+    // Return empty array if Firebase is not available
+    return [];
+  }
 };
 
 export const uploadExcelDataToFirestoreScorers = async (excelData, leagueIdentifier) => {
